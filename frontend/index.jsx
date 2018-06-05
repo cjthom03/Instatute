@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
+import Root from './components/root';
 
 //TEST START
   import {signup, login, logout} from './actions/session_actions';
@@ -19,5 +20,5 @@ document.addEventListener('DOMContentLoaded', () => {
     window.dispatch = store.dispatch;
   //TEST END
 
-  ReactDOM.render(<h1>udemyclone INSTAtute</h1>, rootEl);
+  ReactDOM.render(<Root store={store} />, rootEl);
 });
