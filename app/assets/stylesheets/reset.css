@@ -9,6 +9,10 @@ html, body, div, span, h1, h2, h3, h4, a, ol, ul, li, form, label, article, asid
   text-decoration: none;
 }
 
+a {
+  color: inherit;
+}
+
 input:focus {
   outline: none;
 }
