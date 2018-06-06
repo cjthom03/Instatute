@@ -61,8 +61,9 @@ class SessionForm extends React.Component {
     }
 
     const showErrors = !(this.props.errors.length) ? ("") : (
-      <ul>
-        {this.props.errors.map((error, id) => <li key={id}>{error}</li>)}
+      <ul className="modal-session-errors-list">
+        {this.props.errors.map((error, id) =>
+          <li key={id}>{error}</li>)}
       </ul>
     );
 

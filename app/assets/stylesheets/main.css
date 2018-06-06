@@ -1,3 +1,8 @@
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
+}
+
+main {
+  content: "";
+  min-height: 500px;
 }

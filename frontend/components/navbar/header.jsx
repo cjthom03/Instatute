@@ -3,16 +3,12 @@ import { Route, Link } from 'react-router-dom';
 
 import SessionButtonsContainer from '../session/session_buttons_container';
 import SearchContainer from '../search/search_container';
+import HeaderLogo from './header_logo';
 
 export default () => (
   <header className="header-main">
     <div className="header-inner">
-      <nav className="header-inner-left">
-          <Link className="header-logo-container" to="/">
-          <i className="fas fa-graduation-cap"></i>
-          <h1>Instatute</h1>
-          </Link>
-      </nav>
+      <HeaderLogo />
       <nav className="header-inner-center">
         <SearchContainer />
       </nav>

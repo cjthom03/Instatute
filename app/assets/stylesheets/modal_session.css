@@ -125,3 +125,14 @@
   cursor: pointer;
   color: #007691;
 }
+
+.modal-session-errors-list {
+  margin: 0 20px;
+  margin-top: 10px;
+  font-size: 13px;
+  color: #ec5251;
+}
+
+.modal-session-errors-list li {
+  margin-top: 5px;
+}
