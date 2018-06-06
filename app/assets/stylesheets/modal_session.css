@@ -1,0 +1,127 @@
+.modal-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(41, 48, 59, 0.7);
+  z-index: 10;
+}
+
+.modal-child {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modal-content {
+  min-width: 300px;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 6px;
+  font-family: 'Open Sans', sans-serif;
+  box-shadow: 0 0 1px 1px rgba(20,23,28,.1), 0 3px 1px 0 rgba(20,23,28,.1)
+}
+
+.modal-content form {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 20px;
+}
+
+.demo-submit {
+  margin: 0 20px;
+  background-color: #007791;
+  border: 1px solid transparent;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.demo-submit:hover {
+  background-color: #005061;
+}
+
+.modal-content form input {
+  margin-top: 10px;
+  padding: 11px 10px 12px 40px;
+  font-size: 15px;
+  color: #6e757f;
+}
+
+.modal-content-text-input {
+  position: relative;
+}
+
+.modal-content-text-input input {
+  margin-top: 10px;
+  padding: 11px 10px 12px 40px;
+  font-size: 15px;
+  width: 100%;
+  box-sizing: border-box;
+  color: #6e757f;
+  border-radius: 5px;
+  border: 1px solid #cacbcc;
+}
+
+.modal-content-text-input input:focus {
+  border-color: #76c5d6;
+  box-shadow: inset 0 0 1px rgba(0,119,145,.5);
+  outline: none;
+}
+
+.modal-content-text-input i {
+  position: absolute;
+  z-index: 11;
+  top: 25px;
+  left: 9px;
+  color: #dedfe0;
+}
+
+.btn.session {
+  color: #fff;
+  padding: 11px 10px 12px 10px;
+}
+
+.modal-header {
+  background-color: #f2f3f5;
+  border-radius: 0;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  border-bottom: 1px solid #29303b;
+  font-weight: 700;
+  font-size: 15px;
+  color: #515760;
+  padding: 24px 45px 24px 20px;
+  position: relative;
+}
+
+.modal-header a {
+  position: absolute;
+  right: 8px;
+  top: -8px;
+  font-size: 28px;
+  font-weight: lighter;
+  font-family: initial;
+  cursor: pointer;
+}
+
+.modal-header p {
+  margin: 0;
+}
+
+.modal-footer {
+  text-align: center;
+  font-size: 15px;
+  margin: 10px 20px;
+  color: #6e757f;
+  border-top: 1px solid #dedfe0;
+}
+
+.modal-footer a {
+  font-weight: 700;
+  cursor: pointer;
+  color: #007691;
+}

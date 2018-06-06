@@ -13,6 +13,10 @@ class SessionForm extends React.Component {
     this.state = _nullUser;
   }
 
+  componentWillUnmount() {
+    
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
@@ -24,12 +28,27 @@ class SessionForm extends React.Component {
   }
 
   render() {
-    let nameInput = this.props.formType === "Login" ? ("") : (<input
-        type="text"
-        value={this.state.full_name}
-        placeholder="Full Name"
-        onChange={(e) => this.handleChange("full_name", e)}
-      />);
+    let nameInput, formHeader, formFooter;
+
+    if (this.props.formType === "Login") {
+      nameInput = "";
+      formHeader = "Login to Your Instatute Account!";
+      formFooter = "Already have an account?";
+    } else {
+      nameInput = (
+        <div className="modal-content-text-input">
+          <i class="fas fa-user fa-lg"></i>
+          <input
+          type="text"
+          value={this.state.full_name}
+          placeholder="Full Name"
+          onChange={(e) => this.handleChange("full_name", e)}
+          />
+        </div>
+    );
+      formHeader = "Sign up and Start Learning!";
+      formFooter = "Don't have an account?";
+    }
 
     const showErrors = !(this.props.errors.length) ? ("") : (
       <ul>
@@ -38,30 +57,44 @@ class SessionForm extends React.Component {
     );
 
     return(
-      <div>
-        <h1>{this.props.formType}</h1>
-        <div onClick={this.props.closeModal}>X</div>
+      <div className="modal-content">
+        <div className="modal-header">
+          <a onClick={this.props.closeModal}>&times;</a>
+          <p>{formHeader}</p>
+        </div>
         {showErrors}
-        {nameInput}
         <form onSubmit={(e) => this.handleSubmit(e)}>
-          <input
-            type="text"
-            value={this.state.username}
-            placeholder="E-mail"
-            onChange={(e) => this.handleChange("email", e)}
-          />
-          <input
-            type="password"
-            value={this.state.password}
-            placeholder="Password"
-            onChange={(e) => this.handleChange("password", e)}
-          />
-          <input
-              type="submit"
-              value={this.props.formType}
+          <div>{nameInput}</div>
+          <div className="modal-content-text-input">
+            <i class="far fa-envelope fa-lg"></i>
+            <input
+              type="text"
+              value={this.state.email}
+              placeholder="E-mail"
+              onChange={(e) => this.handleChange("email", e)}
+            />
+          </div>
+          <div className="modal-content-text-input">
+            <i class="fas fa-lock fa-lg"></i>
+            <input
+              type="password"
+              value={this.state.password}
+              placeholder="Password"
+              onChange={(e) => this.handleChange("password", e)}
+            />
+          </div>
+          <input className="btn btn-primary session"
+            type="submit"
+            value={this.props.formType}
           />
         </form>
-        {this.props.otherForm}
+          <input className="btn demo-submit"
+            type="button"
+            value="Demo User"
+          />
+        <div className="modal-footer">
+          <p>{formFooter} {this.props.otherForm}</p>
+        </div>
       </div>
     );
   }
