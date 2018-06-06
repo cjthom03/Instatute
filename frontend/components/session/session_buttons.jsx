@@ -5,8 +5,10 @@ const SessionButtons = ({currentUser, logout, openModal}) => {
   if (!currentUser) {
     return (
       <div>
-        <button onClick={() => openModal('login')}>Login</button>
-        <button onClick={() => openModal('signup')}>Sign Up</button>
+          <button className="btn btn-secondary btn-header"
+            onClick={() => openModal('login')}>Login</button>
+          <button className="btn btn-primary btn-header"
+            onClick={() => openModal('signup')}>Sign Up</button>
       </div>
     );
   } else {
@@ -14,7 +16,8 @@ const SessionButtons = ({currentUser, logout, openModal}) => {
       <div>
         <Link to="/my-courses">My Courses</Link>
         <span>{currentUser.full_name}</span>
-        <button onClick={() => logout()}>Logout</button>
+        <button className="btn btn-primary btn-header"
+          onClick={() => logout()}>Logout</button>
       </div>
     );
   }

@@ -1,0 +1,31 @@
+.btn {
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 2px;
+  font-size: 15px;
+  padding: 11px 12px;
+}
+
+.btn-primary {
+  border: 1px solid transparent;
+  background-color: #ec5252;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: #992337;
+}
+
+.btn-secondary {
+  color: #686f7a;
+  background-color: #fff;
+  border: 1px solid #505763;
+}
+
+.btn-secondary:hover {
+  background-color: #f2f3f5;
+}
+
+.btn-header{
+  margin: 0 2px;
+}
