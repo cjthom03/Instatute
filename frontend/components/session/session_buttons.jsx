@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const SessionButtons = ({currentUser, logout}) => {
+const SessionButtons = ({currentUser, logout, openModal}) => {
   if (!currentUser) {
     return (
       <div>
-        <Link to="/signup">Sign Up</Link>
-        <Link to="/login">Log In</Link>
+        <button onClick={() => openModal('login')}>Login</button>
+        <button onClick={() => openModal('signup')}>Sign Up</button>
       </div>
     );
   } else {
