@@ -7,3 +7,27 @@
   font-size: 13px;
   width: 100%;
 }
+
+.search-input:focus {
+  background-color: #fff;
+  border-color: #dedfe0;
+  box-shadow: none;
+}
+
+.search-input-div {
+  position: relative;
+  /* display: flex; */
+}
+
+.search-icon {
+  position: absolute;
+  top: 0px;
+  right: -30px;
+  padding: 15px;
+  color: #ec5252;
+}
+
+.search-icon:hover {
+  color: #fff;
+  background-color: #ec5252;
+}

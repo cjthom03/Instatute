@@ -2,20 +2,76 @@
   display: block;
   background: #fff;
   box-shadow: 0 0 1px 1px rgba(20,23,28,.1), 0 3px 1px 0 rgba(20,23,28,.1);
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 .header-inner {
   display: flex;
-  justify-content: space-between;
   height: 65px;
   max-width: 1440px;
   margin: auto;
   align-items: center;
+}
+.header-inner-left {
+  width: 15%;
+}
+
+.header-logo-container {
+  display: flex;
+  align-items: center;
+  color: #635a52;
+}
+
+/* LOGO */
+.header-inner-left .fa-graduation-cap {
+  font-size: 36px;
+  transform: rotate(-30deg);
+  color: #ec5252;
+}
+
+.header-inner-left h1 {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.header-inner-center {
+  width: 50%;
 }
 
 .header-inner-right {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  width: 35%;
+}
+
+.header-inner-right-logout-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  color: #505763;
+  font-size: 12px 15px;
+}
+
+.header-mycourses {
+  margin-left: 55px;
+  display: block;
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: 1px solid transparent;
+}
+
+.header-mycourses:hover {
+  background-color: #f3f3f3;
+  border: 1px solid #e8e8e8;
+}
+
+.header-username {
+  font-weight: 100;
+  font-style: oblique;
+}
+
+.header-inner-right-logout-container .btn {
+  margin-left: 10px;
 }

@@ -7,6 +7,12 @@ const _nullUser = {
   password: ""
 };
 
+const _demoUser = {
+  full_name: "Demo User",
+  email: "fluffy_Kittens_187@kitties.com",
+  password: "password123"
+};
+
 class SessionForm extends React.Component {
   constructor(props) {
     super(props);
@@ -14,13 +20,17 @@ class SessionForm extends React.Component {
   }
 
   componentWillUnmount() {
-    
+    this.props.clearSessionErrors();
   }
 
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.processForm(user).then(this.props.closeModal);
+  }
+
+  handleDemoSubmit(e) {
+    this.props.demoLogin(_demoUser).then(this.props.closeModal);
   }
 
   handleChange(input, e) {
@@ -37,7 +47,7 @@ class SessionForm extends React.Component {
     } else {
       nameInput = (
         <div className="modal-content-text-input">
-          <i class="fas fa-user fa-lg"></i>
+          <i className="fas fa-user fa-lg"></i>
           <input
           type="text"
           value={this.state.full_name}
@@ -62,11 +72,13 @@ class SessionForm extends React.Component {
           <a onClick={this.props.closeModal}>&times;</a>
           <p>{formHeader}</p>
         </div>
+
         {showErrors}
+
         <form onSubmit={(e) => this.handleSubmit(e)}>
           <div>{nameInput}</div>
           <div className="modal-content-text-input">
-            <i class="far fa-envelope fa-lg"></i>
+            <i className="far fa-envelope fa-lg"></i>
             <input
               type="text"
               value={this.state.email}
@@ -75,7 +87,7 @@ class SessionForm extends React.Component {
             />
           </div>
           <div className="modal-content-text-input">
-            <i class="fas fa-lock fa-lg"></i>
+            <i className="fas fa-lock fa-lg"></i>
             <input
               type="password"
               value={this.state.password}
@@ -91,6 +103,7 @@ class SessionForm extends React.Component {
           <input className="btn demo-submit"
             type="button"
             value="Demo User"
+            onClick={(e) => this.handleDemoSubmit(e)}
           />
         <div className="modal-footer">
           <p>{formFooter} {this.props.otherForm}</p>

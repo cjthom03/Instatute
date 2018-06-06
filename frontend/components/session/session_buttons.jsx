@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const SessionButtons = ({currentUser, logout, openModal}) => {
+const SessionButtons = ({currentUser, logout, openModal, history}) => {
+  // debugger;
   if (!currentUser) {
     return (
       <div>
@@ -13,11 +14,16 @@ const SessionButtons = ({currentUser, logout, openModal}) => {
     );
   } else {
     return (
-      <div>
-        <Link to="/my-courses">My Courses</Link>
-        <span>{currentUser.full_name}</span>
+      <div className="header-inner-right-logout-container">
+        <Link className="header-mycourses"
+          to="/my-courses">
+          My Courses
+        </Link>
+        <span className="header-username">
+          {currentUser.full_name}
+        </span>
         <button className="btn btn-primary btn-header"
-          onClick={() => logout()}>Logout</button>
+          onClick={() => logout().then(history.push('/'))}>Logout</button>
       </div>
     );
   }
