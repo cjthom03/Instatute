@@ -9,10 +9,10 @@ export default () => (
       <HeaderLogo />
       <nav className="footer-inner-right">
         <a href="https://github.com/cjthom03" alt="github">
-          <i class="fab fa-github"></i>
+          <i className="fab fa-github"></i>
         </a>
         <a href="https://www.linkedin.com/in/charlesjthomas/" alt="LinkedIn">
-          <i class="fab fa-linkedin"></i>
+          <i className="fab fa-linkedin"></i>
         </a>
       </nav>
     </div>

@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const SessionButtons = ({currentUser, logout, openModal, history}) => {
-  // debugger;
   if (!currentUser) {
     return (
       <div>
