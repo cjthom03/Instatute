@@ -37,9 +37,9 @@ end
 #RATINGS
 #-----------------------------------------------------------------------
 Course.all.each do |course|
-  num_ratings = 25 + rand(26)
+  num_ratings = 45 + rand(46)
   num_ratings.times do
-    rating = 1 + rand(5)
+    rating = 3 + rand(3)
     Rating.create!(rating: rating, course_id: course.id)
   end
 end

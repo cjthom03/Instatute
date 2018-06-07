@@ -16,5 +16,7 @@ class Course < ApplicationRecord
 
   has_many :ratings
 
-  # Add functions to gather the number of ratings & the avg rating?
+  def avg_rating(ratings = self.ratings)
+    (ratings.map{|r| r.rating }.reduce(:+)).fdiv(ratings.count).round(1)
+  end
 end
