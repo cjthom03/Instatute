@@ -6,6 +6,11 @@ class Api::CoursesController < ApplicationController
 
   def show
     @course = Course.includes(:ratings).find_by_id(params[:id])
-    render :show
+    
+    if @course
+      render :show
+    else
+      render json: ["Course not found"], status: 404
+    end
   end
 end
