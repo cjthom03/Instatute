@@ -1,5 +1,9 @@
 import React from 'react';
-import { Route, Link } from 'react-router-dom';
+import {
+  Route,
+  Switch,
+  Redirect
+  } from 'react-router-dom';
 
 import Modal from './modal/modal';
 import Header from './navbar/header';
@@ -9,7 +13,10 @@ export default () => (
   <div>
     <Modal />
     <Header />
-    <main></main>
+    <Switch>
+      <Route exact path='/' render={() => (<main></main>)} />
+      <Redirect to='/' />
+    </Switch>
     <Footer />
   </div>
 );
