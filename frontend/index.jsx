@@ -4,7 +4,8 @@ import configureStore from './store/store';
 import Root from './components/root';
 
 //TEST START
-  import {fetchCourses, fetchSingleCourse} from './util/course_api_util';
+  import {fetchCourses, fetchSingleCourse} from './actions/course_actions';
+
 //TEST END
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -28,8 +29,8 @@ document.addEventListener('DOMContentLoaded', () => {
   //TEST START
     window.fetchCourses = fetchCourses;
     window.fetchSingleCourse = fetchSingleCourse;
-    // window.getState = store.getState;
-    // window.dispatch = store.dispatch;
+    window.getState = store.getState;
+    window.dispatch = store.dispatch;
   //TEST END
 
   ReactDOM.render(<Root store={store} />, rootEl);

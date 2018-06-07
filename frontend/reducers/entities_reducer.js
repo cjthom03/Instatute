@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
-import UsersReducer from './users_reducer.js';
+import UsersReducer from './users_reducer';
+import CourseReducer from './course_reducer';
 
 export default combineReducers({
-  users: UsersReducer
+  users: UsersReducer,
+  courses: CourseReducer
 });
