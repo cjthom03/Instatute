@@ -9,6 +9,6 @@
 #   rating_count: 803
 # }
 
-  json.extract! course, :id, :title, :description, :image_url
-  json.avg_rating course.avg_rating(course.ratings)
+  json.extract! course, :id, :title, :author, :description, :image_url
+  json.avg_rating number_with_precision(course.avg_rating(course.ratings), precision: 1)
   json.rating_count course.ratings.count

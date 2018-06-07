@@ -1,0 +1,56 @@
+.about-instatute-banner {
+  display: block;
+  border: none;
+  /* height: 85px; */
+  background: linear-gradient(-45deg,#ec5252,#6e1a52);
+}
+
+.about-instatute-banner-inner {
+  max-width: 1200px;
+  display: flex;
+  margin: auto;
+}
+
+.about-instatute-banner-inner-third {
+  width: 33.3%;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 20px 25px;
+}
+
+.about-instatute-banner-inner-third:nth-child(1) {
+  padding-left: 5px;
+}
+
+.about-instatute-banner-inner-third:nth-child(2) {
+  justify-content: center;
+}
+
+.about-instatute-banner-inner-third:nth-child(3) {
+  /* padding-right: 10px; */
+  justify-content: flex-end;
+}
+
+.about-instatute-banner-inner-third i {
+  font-size: 47px;
+  margin-right: 16px;
+  margin-top: -2px;
+}
+
+.about-instatute-banner-inner-third b {
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.43;
+}
+
+.about-instatute-banner-inner-third p {
+  font-size: 15px;
+  font-family: "Open Sans", Helvetica, sans-serif;
+  font-weight: 300;
+  line-height: 1.43;
+}
+
+/* .about-instatute-banner-inner-third span:nth-child(2) {
+
+} */

@@ -5,4 +5,5 @@ body {
 main {
   content: "";
   min-height: 500px;
+  font-family: "Open Sans", sans-serif;
 }

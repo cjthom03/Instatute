@@ -1,5 +1,6 @@
 import React from 'react';
 import CourseIndexItem from './course_index_item';
+import AboutInstatuteBanner from '../banners/about_instatute_banner';
 
 class CourseIndex extends React.Component {
 
@@ -11,7 +12,7 @@ class CourseIndex extends React.Component {
     return(
       <main>
         <div> Main Banner goes here </div>
-        <div> About this site banner goes here </div>
+        <AboutInstatuteBanner />
         <div> Course Index Header </div>
         <div className="course-index">
           {this.props.courses.map( course =>
