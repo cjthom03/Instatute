@@ -3,19 +3,40 @@
   max-width: 1200px;
   margin: 10px auto;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
+}
+
+.course-index-header {
+  max-width: 1200px;
+  margin: auto;
+  line-height: 1.1;
+  color: #505763;
+  font-size: 20px;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  font-weight: 500;
 }
 
 .course-item-container {
   width: 216px;
   height: 290px;
-  border: 1px solid red;
-  margin: 10px 0 10px 0;
+  margin-bottom: 20px;
+  box-shadow: 0 0 1px 1px rgba(20,23,28,.1), 0 3px 1px 0 rgba(20,23,28,.1);
+  transition: all 0.2s ease-in-out;
+}
+
+.course-item-container:hover img {
+  filter: brightness(0.7);
+}
+
+.course-item-container:hover {
+  box-shadow: 0 0 21px 4px rgba(20,23,28,.1), 0 3px 1px 0 rgba(20,23,28,.1);
 }
 
 .course-thumbnail-container img {
   height: 122px;
   max-width: 100%;
+  filter: sepia(.1) grayscale(.1) saturate(.8);
 }
 
 .course-item-card {

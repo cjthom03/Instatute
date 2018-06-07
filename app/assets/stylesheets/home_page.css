@@ -1,7 +1,36 @@
+.main-banner-container {
+  height: 450px;
+  background-image: url(https://s3-us-west-1.amazonaws.com/cjthom03-udemyclone/Assets/Banners/banner.png);
+  display: flex;
+  justify-content: flex-start;
+}
+
+.main-banner-inner {
+  width: 1200px;
+  margin: auto;
+  color: #fff;
+  font-size: 18px;
+  line-height: 34px;
+  font-weight: 300;
+}
+
+.main-banner-inner span {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.main-banner-inner span:first-child {
+  font-size: 44px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  line-height: 1;
+}
+
+
 .about-instatute-banner {
   display: block;
   border: none;
-  /* height: 85px; */
   background: linear-gradient(-45deg,#ec5252,#6e1a52);
 }
 
@@ -20,7 +49,7 @@
 }
 
 .about-instatute-banner-inner-third:nth-child(1) {
-  padding-left: 5px;
+  padding-left: 0;
 }
 
 .about-instatute-banner-inner-third:nth-child(2) {
@@ -28,7 +57,6 @@
 }
 
 .about-instatute-banner-inner-third:nth-child(3) {
-  /* padding-right: 10px; */
   justify-content: flex-end;
 }
 
@@ -50,7 +78,3 @@
   font-weight: 300;
   line-height: 1.43;
 }
-
-/* .about-instatute-banner-inner-third span:nth-child(2) {
-
-} */

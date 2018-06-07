@@ -1,9 +1,11 @@
 import React from 'react';
 import Rating from 'react-rating';
+import { Link } from 'react-router-dom';
 
 
 const CourseIndexItem = ({ course }) => {
   return(
+    <Link to={`/courses/${course.id}`}>
     <div className="course-item-container">
       <div className="course-thumbnail-container">
         <img src={course.image_url} />
@@ -15,7 +17,7 @@ const CourseIndexItem = ({ course }) => {
           <Rating
             emptySymbol="fas fa-star empty"
             fullSymbol="fas fa-star full"
-            initialRating={course.avg_rating}
+            initialRating={Number(course.avg_rating)}
             readonly
             />
           <span className="star-rating-avg">{course.avg_rating}</span>
@@ -23,6 +25,7 @@ const CourseIndexItem = ({ course }) => {
         </div>
       </div>
     </div>
+    </Link>
   );
 };
 
