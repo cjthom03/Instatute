@@ -18,5 +18,3 @@ class Course < ApplicationRecord
 
   # Add functions to gather the number of ratings & the avg rating?
 end
-
-# title: "Something", author: "Something", description: "Something", image_url: "Something"
