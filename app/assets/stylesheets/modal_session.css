@@ -127,6 +127,10 @@
   color: #007691;
 }
 
+.modal-footer p {
+  padding: 13px 0 10px 0;
+}
+
 .modal-session-errors-list {
   margin: 0 20px;
   margin-top: 10px;

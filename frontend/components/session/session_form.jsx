@@ -1,11 +1,6 @@
 import React from 'react';
+import { _nullUser } from '../../util/null_objects';
 
-
-const _nullUser = {
-  full_name: "",
-  email: "",
-  password: ""
-};
 
 const _demoUser = {
   full_name: "Demo User",

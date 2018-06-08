@@ -1,0 +1,17 @@
+.course-show-header-container {
+  color: #fff;
+  background-color: #29303b;
+}
+
+.course-show-header-inner {
+  width: 1200px;
+  height: 300px;
+  padding: 30px 0;
+  margin: 0 auto;
+  display: flex;
+}
+
+.course-show-header-inner-left img {
+  height: 100%;
+  max-width: 425px;
+}

@@ -6,8 +6,13 @@ import AboutInstatuteBanner from '../banners/about_instatute_banner';
 
 class CourseIndex extends React.Component {
 
+  componentWillMount() {
+    //set the loading spinner to true
+  }
+
   componentDidMount() {
     this.props.fetchCourses();
+    //.then set the ui: loading to false
   }
 
   render () {

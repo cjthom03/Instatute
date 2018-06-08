@@ -7,6 +7,8 @@ import CourseIndex from './course_index';
 
 const mapStateToProps = state => ({
   courses: coursesToArray(state.entities.courses)
+  //Also, pass down the ui:loading slice of state
+  //https://github.com/appacademy/curriculum/blob/master/react/projects/pokedex/pokedex_ii.md
 });
 
 const mapDispatchToProps = dispatch => ({
