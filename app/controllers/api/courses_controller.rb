@@ -5,8 +5,8 @@ class Api::CoursesController < ApplicationController
   end
 
   def show
-    @course = Course.includes(:ratings).find_by_id(params[:id])
-    
+    @course = Course.includes(:ratings, :lessons).find_by_id(params[:id])
+
     if @course
       render :show
     else
