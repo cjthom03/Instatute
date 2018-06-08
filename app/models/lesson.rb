@@ -13,4 +13,9 @@
 #
 
 class Lesson < ApplicationRecord
+  validates :title, :order_num, :content_url,
+    :content_duration, presence: true
+
+  belongs_to :course
+
 end

@@ -15,6 +15,7 @@ class Course < ApplicationRecord
   validates :title, :author, :description, :image_url, presence: true
 
   has_many :ratings
+  has_many :lessons
 
   def avg_rating(ratings = self.ratings)
     (ratings.map{|r| r.rating }.reduce(:+)).fdiv(ratings.count).round(1)

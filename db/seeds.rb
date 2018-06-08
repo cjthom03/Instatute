@@ -27,9 +27,9 @@ User.create!(
 
 10.times do |i|
   Course.create!(
-    title: "Course #{i} Title: this title is extra long to test css wraps",
-    author: "Author Name #{i}",
-    description: "#{i} This description does not matter yet, it is not being used.",
+    title: "Course #{i+1} Title: this title is extra long to test css wraps",
+    author: "Author Name #{i+1}",
+    description: "This description ##{i+1}does not matter yet, it is not being used.",
     image_url: "https://xyleme.com/wp-content/uploads/2015/04/Image-Blog-Want-To-Know-What-Personalized-Learning-Looks-Like.png"
   )
 end
@@ -41,5 +41,15 @@ Course.all.each do |course|
   num_ratings.times do
     rating = 3 + rand(3)
     Rating.create!(rating: rating, course_id: course.id)
+  end
+
+  num_courses = course.id + 5
+  num_courses.times do |n|
+    Lesson.create!(
+      course_id: course.id,
+      title: "The only lesson there is. (Also, some extra text is here to test css wraps).",
+      order_num: n + 1,
+      content_url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      content_duration: 212)
   end
 end
