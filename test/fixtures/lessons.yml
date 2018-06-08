@@ -1,0 +1,29 @@
+# == Schema Information
+#
+# Table name: lessons
+#
+#  id               :bigint(8)        not null, primary key
+#  course_id        :integer          not null
+#  title            :string           not null
+#  order_num        :integer          not null
+#  content_url      :string           not null
+#  content_duration :integer          not null
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  course_id: 1
+  title: MyString
+  order_num: 1
+  content_url: MyString
+  content_duration: 1
+
+two:
+  course_id: 1
+  title: MyString
+  order_num: 1
+  content_url: MyString
+  content_duration: 1
