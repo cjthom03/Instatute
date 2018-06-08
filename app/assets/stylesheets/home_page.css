@@ -1,6 +1,7 @@
 .main-banner-container {
   height: 450px;
-  background-image: url(https://s3-us-west-1.amazonaws.com/cjthom03-udemyclone/Assets/Banners/banner.png);
+  background-image: url(https://s3-us-west-1.amazonaws.com/cjthom03-udemyclone/Assets/Banners/banner2.jpg);
+  background-size: cover;
   display: flex;
   justify-content: flex-start;
 }

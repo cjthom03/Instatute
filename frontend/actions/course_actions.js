@@ -2,6 +2,8 @@ import * as CourseApiUtils from '../util/course_api_util';
 
 export const RECEIVE_COURSES = 'RECEIVE_COURSES';
 export const RECEIVE_SINGLE_COURSE = 'RECEIVE_SINGLE_COURSE';
+export const START_LOADING_COURSES = 'START_LOADING_COURSES';
+export const START_LOADING_SINGLE_COURSE = 'START_LOADING_SINGLE_COURSE';
 
 
 const receiveCourses = courses => ({
@@ -14,12 +16,24 @@ const receiveSingleCourse = course => ({
   course
 });
 
-export const fetchCourses = () => dispatch => (
-  CourseApiUtils.fetchCourses()
-    .then(courses => dispatch(receiveCourses(courses)))
-);
+const startLoadingCourses = () => ({
+  type: START_LOADING_COURSES
+});
 
-export const fetchSingleCourse = courseId => dispatch => (
-  CourseApiUtils.fetchSingleCourse(courseId)
-    .then(course => dispatch(receiveSingleCourse(course)))
-);
+const startLoadingSingleCourse = () => ({
+  type: START_LOADING_SINGLE_COURSE
+});
+
+export const fetchCourses = () => dispatch => {
+  dispatch(startLoadingCourses());
+  return (CourseApiUtils.fetchCourses()
+    .then(courses => dispatch(receiveCourses(courses))
+  ));
+};
+
+export const fetchSingleCourse = courseId => dispatch => {
+  dispatch(startLoadingSingleCourse());
+  return (CourseApiUtils.fetchSingleCourse(courseId)
+    .then(course => dispatch(receiveSingleCourse(course))
+  ));
+};

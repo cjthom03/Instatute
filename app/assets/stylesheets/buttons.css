@@ -4,6 +4,7 @@
   border-radius: 2px;
   font-size: 15px;
   padding: 11px 12px;
+  line-height: 1.35135;
 }
 
 .btn:focus {
