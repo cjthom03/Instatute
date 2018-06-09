@@ -17,11 +17,28 @@ class Course < ApplicationRecord
   has_many :ratings
   has_many :lessons
 
-  def avg_rating(ratings = self.ratings)
+  def avgRating(ratings = self.ratings)
     (ratings.map{|r| r.rating }.reduce(:+)).fdiv(ratings.length).round(1)
   end
 
-  def total_duration(lessons = self.lessons)
-    lessons.map {|l| l.content_duration }.reduce(:+)
+  def formatedTotalDuration(lessons = self.lessons)
+    duration = lessons.map {|l| l.content_duration }.reduce(:+) 
+    mins = duration / 60
+    case mins
+    when 0...60
+      "#{mins} mins"
+    when 60..75
+      "1 hour"
+    else
+      hours = mins / 60
+      case mins % 60
+      when 0...16
+        "#{hours} hours"
+      when 16...46
+        "#{hours}.5 hours"
+      else
+        "#{hours + 1} hours"
+      end
+    end
   end
 end

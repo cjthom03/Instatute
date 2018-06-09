@@ -45,11 +45,12 @@ Course.all.each do |course|
 
   num_courses = course.id + 5
   num_courses.times do |n|
+    duration = 120 + rand(1800)
     Lesson.create!(
       course_id: course.id,
       title: "The only lesson there is. (Also, some extra text is here to test css wraps).",
       order_num: n + 1,
       content_url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-      content_duration: 212)
+      content_duration: duration)
   end
 end

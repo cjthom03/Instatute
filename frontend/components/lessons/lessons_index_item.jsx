@@ -6,7 +6,7 @@ const LessonsIndexItem = ({ lesson }) => {
     <div>
       {lesson.order_num}
       {lesson.title}
-      {lesson.content_duration}
+      {lesson.duration}
     </div>
   );
 };

@@ -18,4 +18,11 @@ class Lesson < ApplicationRecord
 
   belongs_to :course
 
+  def formatDuration(duration = self.content_duration)
+    mins = duration / 60
+    secs = (duration) % 60
+    secs = secs < 10 ? "0#{secs}" : "#{secs}"
+    "#{mins}:#{secs}"
+  end
+
 end
