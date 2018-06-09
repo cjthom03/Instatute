@@ -1,17 +1,18 @@
 import React from 'react';
-import CourseRatings from './ratings';
 import { Redirect } from 'react-router-dom';
+import CourseRatings from './ratings';
+import LessonsIndex from '../lessons/lessons_index';
+
 
 class CourseShow extends React.Component {
   constructor(props) {
     super(props);
   }
 
-
   componentWillReceiveProps(nextProps) {
     if (!nextProps.course.id) {
       this.props.history.push('/');
-    } else if (this.props.course.id != nextProps.course.id) {
+    } else if (this.props.course.id !== nextProps.course.id) {
       this.props.fetchSingleCourse(nextProps.course.id);
     }
   }
@@ -40,8 +41,7 @@ class CourseShow extends React.Component {
             </div>
           </div>
         </div>
-        <div className="lessons-index-container">
-        </div>
+        <LessonsIndex lessons={this.props.lessons} />
       </main>
       );
     }

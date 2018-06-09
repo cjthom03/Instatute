@@ -4,7 +4,8 @@ import { fetchSingleCourse } from '../../actions/course_actions';
 import CourseShow from './course_show';
 
 const mapStateToProps = (state, ownProps) => ({
-  course: state.entities.courses[ownProps.match.params.courseId] || _nullCourse
+  course: state.entities.courses[ownProps.match.params.courseId] || _nullCourse,
+  lessons: state.entities.lessons
 });
 
 const mapDispatchToProps = dispatch => ({
