@@ -1,3 +1,37 @@
+.lessons-main{
+  background-color: #f2f3f6;
+}
+
 .lessons-index-container {
-  height: 500px;
+  display: flex;
+  flex-direction: column;
+  width: 1200px;
+  margin: 0px auto;
+  padding: 30px 0;
+  color: #505763
+}
+
+.lessons-index-header {
+  margin: 10px 0;
+}
+
+.lesson-item-container {
+  display: flex;
+  align-items: stretch;
+  background-color: #fff;
+  width: 80%;
+  justify-content: space-between;
+  padding: 15px;
+  margin-bottom: 25px;
+  box-shadow: 0 0 1px 1px rgba(20,23,28,.1), 0 3px 1px 0 rgba(20,23,28,.1);
+  transition: all 0.2s ease-in-out;
+}
+
+.lesson-item-container:hover {
+  box-shadow: 0 0 21px 4px rgba(20,23,28,.1), 0 3px 1px 0 rgba(20,23,28,.1);
+  cursor: pointer;
+}
+
+.lessons-index-container i {
+  font-size: 24px;
 }
