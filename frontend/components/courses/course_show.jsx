@@ -5,32 +5,24 @@ import { Redirect } from 'react-router-dom';
 class CourseShow extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { courseExists: true };
   }
 
 
   componentWillReceiveProps(nextProps) {
     if (!nextProps.course.id) {
-      this.setState({courseExists: false});
+      this.props.history.push('/');
     } else if (this.props.course.id != nextProps.course.id) {
       this.props.fetchSingleCourse(nextProps.course.id);
     }
   }
 
   componentDidMount() {
-
     this.props.fetchSingleCourse(this.props.match.params.courseId)
-      .then(
-        null,
-        () => this.setState({courseExists: false})
-        );
+      .then(null,() => this.props.history.push('/'));
   }
 
   render() {
     let course = this.props.course;
-    if (!this.state.courseExists) {
-      return (<Redirect to='/' />);
-    } else {
     return (
       <main>
         <div className="course-show-header-container">
@@ -54,6 +46,6 @@ class CourseShow extends React.Component {
       );
     }
   }
-}
+
 
 export default CourseShow;
