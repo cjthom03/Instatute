@@ -5,10 +5,10 @@ const LessonsIndexItem = ({ lesson }) => {
     <div className="lesson-item-container">
       <div className="lesson-item-container-left">
         <i className="far fa-play-circle"></i>
-        {lesson.order_num}. {lesson.title}
+        <span>{lesson.order_num}. {lesson.title}</span>
       </div>
       <div className="lesson-item-container-right">
-        {lesson.duration}
+        <span>{lesson.duration}</span>
         <i className="far fa-circle"></i>
       </div>
     </div>

@@ -10,10 +10,9 @@ class CourseShow extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (!nextProps.course.id) {
-      this.props.history.push('/');
-    } else if (this.props.course.id !== nextProps.course.id) {
-      this.props.fetchSingleCourse(nextProps.course.id);
+    if (this.props.course.id != nextProps.match.params.courseId) {
+      this.props.fetchSingleCourse(nextProps.match.params.courseId)
+        .then(null,() => this.props.history.push('/'));
     }
   }
 

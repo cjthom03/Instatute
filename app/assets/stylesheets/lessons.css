@@ -8,7 +8,9 @@
   width: 1200px;
   margin: 0px auto;
   padding: 30px 0;
-  color: #505763
+  color: #686f7a;
+  font-weight: 300;
+  font-size: 15px;
 }
 
 .lessons-index-header {
@@ -25,13 +27,51 @@
   margin-bottom: 25px;
   box-shadow: 0 0 1px 1px rgba(20,23,28,.1), 0 3px 1px 0 rgba(20,23,28,.1);
   transition: all 0.2s ease-in-out;
+  border: 1px solid transparent;
 }
 
 .lesson-item-container:hover {
-  box-shadow: 0 0 21px 4px rgba(20,23,28,.1), 0 3px 1px 0 rgba(20,23,28,.1);
+  box-shadow: 0 2px 8px 2px rgba(20,23,28,.15);
+  border: 1px solid #76c5d6;
   cursor: pointer;
 }
 
+.lesson-item-container-left {
+  width: 80%;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.lesson-item-container-left span {
+  opacity: .9;
+}
+
 .lessons-index-container i {
-  font-size: 24px;
+  font-size: 1.3em;
+  vertical-align: -8%;
+}
+
+.lessons-index-container .fa-play-circle {
+  margin-right: 10px;
+}
+
+.lesson-item-container:hover .fa-play-circle {
+  color: #007791;
+}
+
+.lesson-item-container .fa-play-circle:hover {
+  color: #005061;
+}
+
+
+.lesson-item-container-right span {
+  opacity: .7;
+  margin-right: 30px;
+}
+
+.lessons-index-container .fa-circle {
+  color: #e4e6ea;
 }
