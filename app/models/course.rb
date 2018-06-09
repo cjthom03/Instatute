@@ -18,7 +18,7 @@ class Course < ApplicationRecord
   has_many :lessons
 
   def avg_rating(ratings = self.ratings)
-    (ratings.map{|r| r.rating }.reduce(:+)).fdiv(ratings.count).round(1)
+    (ratings.map{|r| r.rating }.reduce(:+)).fdiv(ratings.length).round(1)
   end
 
   def total_duration(lessons = self.lessons)

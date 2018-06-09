@@ -1,6 +1,6 @@
 class Api::CoursesController < ApplicationController
   def index
-    @courses = Course.includes(:ratings).all
+    @courses = Course.includes(:ratings, :lessons).all
     render :index
   end
 

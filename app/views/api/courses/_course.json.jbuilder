@@ -10,8 +10,10 @@
 #   rating_count: 803
 # }
 
+json.set! course.id do
   json.extract! course, :id, :title, :author, :description, :image_url
   json.avg_rating number_with_precision(course.avg_rating(course.ratings), precision: 1)
-  json.rating_count course.ratings.count
-  json.lesson_count course.lessons.count
+  json.rating_count course.ratings.length
+  json.lesson_count course.lessons.length
   json.total_duration course.total_duration(course.lessons)
+end

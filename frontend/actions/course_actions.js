@@ -11,9 +11,10 @@ const receiveCourses = courses => ({
   courses
 });
 
-const receiveSingleCourse = course => ({
+const receiveSingleCourse = ({course, lessons}) => ({
   type: RECEIVE_SINGLE_COURSE,
-  course
+  course,
+  lessons
 });
 
 const startLoadingCourses = () => ({
@@ -34,6 +35,6 @@ export const fetchCourses = () => dispatch => {
 export const fetchSingleCourse = courseId => dispatch => {
   dispatch(startLoadingSingleCourse());
   return (CourseApiUtils.fetchSingleCourse(courseId)
-    .then(course => dispatch(receiveSingleCourse(course))
+    .then(payload => dispatch(receiveSingleCourse(payload))
   ));
 };

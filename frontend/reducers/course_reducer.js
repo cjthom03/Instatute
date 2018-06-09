@@ -10,7 +10,7 @@ export default (oldState = {}, action) => {
     case RECEIVE_COURSES:
       return merge({}, action.courses);
     case RECEIVE_SINGLE_COURSE:
-      return merge({}, oldState, {[action.course.id]: action.course});
+      return merge({}, oldState, action.course);
     default:
       return oldState;
   }
