@@ -7,7 +7,7 @@ import Root from './components/root';
   import {
     fetchSubscriptions,
     postSubscription
-  } from './util/subscription_api_util';
+  } from './actions/subscription_actions';
 
 //TEST END
 
