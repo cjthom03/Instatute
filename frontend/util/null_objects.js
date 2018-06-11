@@ -14,3 +14,12 @@ export const _nullCourse = {
   avg_rating: null,
   rating_count: null
 };
+
+export const _nullLesson = {
+  id: null,
+  course_id: null,
+  order_num: null,
+  content_url: "",
+  title: "",
+  duration: ""
+};

@@ -1,0 +1,94 @@
+.active-lesson-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #000000;
+  font-family: "Open Sans", sans-serif;
+}
+
+.video-responsive{
+  overflow: hidden;
+  padding-bottom: 50%;
+  position: relative;
+  height: 0;
+}
+.video-responsive iframe{
+  left: 200px;
+  top: 100px;
+  right: 200px;
+  bottom: 100px;
+  height: calc(100% - 200px);
+  width: calc(100% - 400px);
+  position: absolute;
+  z-index: 1;
+}
+
+.active-lesson-header {
+  width: calc(100vw - 20px);
+  padding: 10px;
+  background-color: rgba(0, 0, 0, .75);
+  display: flex;
+  justify-content: space-between;
+  font-family: "Open Sans", sans-serif;
+}
+
+.active-lesson-upper-left {
+  z-index: 2;
+  color: #d3d4d6;
+  margin-left: 30px;
+  margin-top: 15px;
+}
+
+.active-lesson-upper-right {
+  z-index: 2;
+  color: #d3d4d6;
+  margin-right: 30px;
+  margin-top: 15px;
+}
+
+.active-lesson-upper-left span {
+  margin-left: 15px;
+  font-size: 18px;
+}
+.active-lesson-upper-right span {
+  margin-right: 15px;
+  font-size: 18px;
+}
+
+.active-lesson-footer {
+  z-index: 2;
+  color: #d3d4d6;
+  position: absolute;
+  bottom: 10vh;
+  right: 0;
+  width: calc(100vw - 80px);
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 40px;
+  font-size: 18px;
+  font-family: "Open Sans", sans-serif;
+}
+
+.active-lesson-footer i {
+  margin: 0 10px;
+}
+
+.sidebar {
+  height: 100vh;
+  width: 27vw;
+  position: fixed;
+  background-color: #f2f3f6;
+  z-index: 3;
+  padding-left: 15px;
+  font-family: "Open Sans", sans-serif;
+}
+
+.sidebar button {
+  position: absolute;
+  left: 26.5vw;
+  top: 3px;
+  font-size: 21px;
+  transition: all .4s ease;
+}

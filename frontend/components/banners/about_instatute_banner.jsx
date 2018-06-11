@@ -14,7 +14,7 @@ export default () => (
         <span><i className="fas fa-chalkboard-teacher"></i></span>
         <span>
           <b>Expert instruction</b>
-          <p>The best the YouTube has to offer</p>
+          <p>The best that YouTube has to offer</p>
         </span>
       </div>
       <div className="about-instatute-banner-inner-third">

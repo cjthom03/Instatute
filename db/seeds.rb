@@ -50,7 +50,7 @@ Course.all.each do |course|
       course_id: course.id,
       title: "The only lesson there is. (Also, some extra text is here to test css wraps).",
       order_num: n + 1,
-      content_url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      content_url: "https://www.youtube.com/watch?v=U9t-slLl30E",
       content_duration: duration)
   end
 end

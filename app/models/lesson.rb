@@ -25,4 +25,10 @@ class Lesson < ApplicationRecord
     "#{mins}:#{secs}"
   end
 
+  def getVideoID(url = self.content_url)
+    uri = URI.parse(url)
+    uriHash = URI.decode_www_form(uri.query).to_h
+    uriHash['v']
+  end
+
 end

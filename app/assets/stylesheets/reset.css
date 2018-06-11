@@ -13,6 +13,19 @@ a {
   color: inherit;
 }
 
+button {
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  background-color: inherit;
+  color: inherit;
+  font: inherit;
+}
+
+button:focus {
+  outline: none;
+}
+
 input:focus {
   outline: none;
 }
