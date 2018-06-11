@@ -4,7 +4,10 @@ import configureStore from './store/store';
 import Root from './components/root';
 
 //TEST START
-  import {fetchCourses, fetchSingleCourse} from './actions/course_actions';
+  import {
+    fetchSubscriptions,
+    postSubscription
+  } from './util/subscription_api_util';
 
 //TEST END
 
@@ -27,8 +30,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   //TEST START
-    window.fetchCourses = fetchCourses;
-    window.fetchSingleCourse = fetchSingleCourse;
+    window.postSubscription = postSubscription;
+    window.fetchSubscriptions = fetchSubscriptions;
     window.getState = store.getState;
     window.dispatch = store.dispatch;
   //TEST END
