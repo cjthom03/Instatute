@@ -93,7 +93,7 @@ class ActiveLesson extends React.Component {
             <iframe id="player" type="text/html"
               width="640" height="390"
               src=
-              {`http://www.youtube.com/embed/${ytId}?enablejsapi=1&autoplay=1&iv_load_policy=3&rel=0&showinfo=0`}
+              {`https://www.youtube.com/embed/${ytId}?enablejsapi=1&autoplay=1&iv_load_policy=3&rel=0&showinfo=0`}
               frameBorder="0"
               allowFullScreen></iframe>
           </div>
