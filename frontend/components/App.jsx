@@ -4,6 +4,7 @@ import {
   Switch,
   Redirect
   } from 'react-router-dom';
+import { ProtectedRoute } from '../util/route_utils';
 
 import Modal from './modal/modal';
 import Header from './navbar/header';
@@ -12,6 +13,7 @@ import Footer from './footer/footer';
 import CourseContainer from './courses/course_container';
 import CourseShowContainer from './courses/course_show_container';
 import ActiveLessonContainer from './lessons/active_lesson_container';
+
 
 export default () => (
   <div>
@@ -23,7 +25,7 @@ export default () => (
     </Switch>
 
     <Switch>
-      <Route path='/courses/:courseId/lessons/:lessonId'
+      <ProtectedRoute path='/courses/:courseId/lessons/:lessonId'
         component={ActiveLessonContainer} />
       <Route path='/courses/:courseId'
         component={CourseShowContainer} />
