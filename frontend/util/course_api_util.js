@@ -1,8 +1,9 @@
 
-export const fetchCourses = () => (
+export const fetchCourses = (subscriptions = false) => (
   $.ajax({
     method: 'GET',
-    url: `api/courses`
+    url: `api/courses`,
+    data: { subscriptions }
   })
 );
 

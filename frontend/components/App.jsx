@@ -13,6 +13,7 @@ import Footer from './footer/footer';
 import CourseContainer from './courses/course_container';
 import CourseShowContainer from './courses/course_show_container';
 import ActiveLessonContainer from './lessons/active_lesson_container';
+import MyCoursesContainer from './courses/my_courses_container';
 
 
 export default () => (
@@ -25,6 +26,8 @@ export default () => (
     </Switch>
 
     <Switch>
+      <ProtectedRoute path='/my-courses'
+        component={MyCoursesContainer}/>
       <ProtectedRoute path='/courses/:courseId/lessons/:lessonId'
         component={ActiveLessonContainer} />
       <Route path='/courses/:courseId'

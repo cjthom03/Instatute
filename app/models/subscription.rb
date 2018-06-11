@@ -10,6 +10,8 @@
 #
 
 class Subscription < ApplicationRecord
+  validates :user_id, uniqueness: { scope: :course_id,
+    message: "cannot subscribe to the same course more than once"}
   belongs_to :user
   belongs_to :course
 end

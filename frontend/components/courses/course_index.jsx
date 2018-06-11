@@ -10,6 +10,15 @@ class CourseIndex extends React.Component {
     this.props.fetchCourses();
   }
 
+  banners() {
+    return(
+      <div>
+        <MainBanner />
+        <AboutInstatuteBanner />
+      </div>
+    );
+  }
+
   render () {
     let courseIndex;
     if(this.props.loading) {
@@ -30,8 +39,7 @@ class CourseIndex extends React.Component {
 
     return(
       <main>
-        <MainBanner />
-        <AboutInstatuteBanner />
+        {this.banners()}
         <div className="course-index-header"> Love to Learn: Start here </div>
         {courseIndex}
       </main>

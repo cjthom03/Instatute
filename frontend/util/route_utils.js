@@ -14,13 +14,15 @@ const mapDispatchToProps = dispatch => ({
 const Protected = ({ loggedIn, path, component: Component,
   openModal, computedMatch}) => {
   if (!loggedIn) openModal('login');
+  let redirectPath = computedMatch.params.courseId ?
+    (`/courses/${computedMatch.params.courseId}`) : (`/`);
 
   return(
     <Route
       path={path}
       render={props => (
         loggedIn ? <Component  {...props} /> :
-        <Redirect to={`/courses/${computedMatch.params.courseId}`} />
+        <Redirect to={redirectPath} />
       )}
     />
   );

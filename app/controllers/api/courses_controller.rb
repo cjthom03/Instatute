@@ -1,6 +1,11 @@
 class Api::CoursesController < ApplicationController
   def index
-    @courses = Course.includes(:ratings, :lessons).all
+    if params[:subscriptions] == "true" && current_user
+      @courses = Course.joins(:subscriptions)
+        .where(["subscriptions.user_id = ?", current_user.id])
+    else
+      @courses = Course.includes(:ratings, :lessons).all
+    end
     render :index
   end
 
