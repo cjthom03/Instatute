@@ -16,13 +16,14 @@ class Course < ApplicationRecord
 
   has_many :ratings
   has_many :lessons
+  has_many :subscriptions
 
   def avgRating(ratings = self.ratings)
     (ratings.map{|r| r.rating }.reduce(:+)).fdiv(ratings.length).round(1)
   end
 
   def formatedTotalDuration(lessons = self.lessons)
-    duration = lessons.map {|l| l.content_duration }.reduce(:+) 
+    duration = lessons.map {|l| l.content_duration }.reduce(:+)
     mins = duration / 60
     case mins
     when 0...60

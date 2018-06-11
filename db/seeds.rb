@@ -2222,3 +2222,23 @@ Course.all.each do |course|
   #     content_duration: duration)
   # end
 end
+
+#SUBSCRIPTIONS
+#-----------------------------------------------------------------------
+
+demoUser = User.find_by_full_name("Demo User")
+
+Subscription.create!(
+  user_id: demoUser.id,
+  course_id: 1
+)
+
+Subscription.create!(
+  user_id: demoUser.id,
+  course_id: 15
+)
+
+Subscription.create!(
+  user_id: demoUser.id,
+  course_id: 23
+)
