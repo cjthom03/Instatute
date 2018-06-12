@@ -18,7 +18,7 @@ class LessonsIndex extends React.Component {
             <div>
               <ul>
                 {this.props.subscriptionErrors.map((err, i) =>
-                  (<li key={i}>{err}</li>))}
+                  (<li className="lesson-index-errors" key={i}>{err}</li>))}
               </ul>
             </div>
             <div className="lessons-index-header">All Lessons</div>

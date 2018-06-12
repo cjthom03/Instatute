@@ -14,6 +14,13 @@
   font-size: 15px;
 }
 
+.lesson-index-errors{
+  color: #ec5252;
+  font-size: 16px;
+  margin-bottom: 10px;
+  font-weight: 300;
+}
+
 .lessons-index-header {
   margin: 10px 0;
 }
