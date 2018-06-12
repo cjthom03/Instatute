@@ -25,9 +25,9 @@ const startLoadingSingleCourse = () => ({
   type: START_LOADING_SINGLE_COURSE
 });
 
-export const fetchCourses = () => dispatch => {
+export const fetchCourses = (options) => dispatch => {
   dispatch(startLoadingCourses());
-  return (CourseApiUtils.fetchCourses()
+  return (CourseApiUtils.fetchCourses(options)
     .then(courses => dispatch(receiveCourses(courses))
   ));
 };

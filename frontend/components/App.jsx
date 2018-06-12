@@ -3,8 +3,10 @@ import {
   Route,
   Switch,
   Redirect
-  } from 'react-router-dom';
-import { ProtectedRoute } from '../util/route_utils';
+} from 'react-router-dom';
+import {
+  ProtectedRoute
+} from '../util/route_utils';
 
 import Modal from './modal/modal';
 import Header from './navbar/header';

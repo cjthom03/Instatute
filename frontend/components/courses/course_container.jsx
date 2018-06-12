@@ -8,7 +8,8 @@ import CourseIndex from './course_index';
 const mapStateToProps = state => {
   return({
   courses: coursesToArray(state.entities.courses),
-  loading: state.ui.loading
+  loading: state.ui.loading,
+  header: "Love to Learn: Start here"
 });
 };
 

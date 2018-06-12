@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { closeSidebar } from '../../actions/sidebar_actions';
-import LessonsIndex from './lessons_index';
+import LessonsIndexContainer from './lessons_container';
 
 class Sidebar extends React.Component{
 
@@ -19,8 +19,8 @@ class Sidebar extends React.Component{
 
     return(
       <div className="sidebar animated slideInLeft">
-        <button onClick={() => this.handleClick()}>&times;</button>
-        <LessonsIndex lessons={this.props.lessons} classAdd={"sidebar"}/>
+        <button className="sidebar-button" onClick={() => this.handleClick()}>&times;</button>
+        <LessonsIndexContainer />
       </div>
     );
   }

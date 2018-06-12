@@ -1,24 +1,57 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import CourseRatings from './ratings';
-import LessonsIndex from '../lessons/lessons_index';
+import LessonsIndexContainer from '../lessons/lessons_container';
 
 
 class CourseShow extends React.Component {
   constructor(props) {
     super(props);
+    this.subscriptionComponent = this.subscriptionComponent.bind(this);
+    this.subscribeUser = this.subscribeUser.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
     if (this.props.course.id != nextProps.match.params.courseId) {
       this.props.fetchSingleCourse(nextProps.match.params.courseId)
         .then(null,() => this.props.history.push('/'));
+    } else if (this.props.loggedIn !== nextProps.loggedIn) {
+      this.props.fetchSubscriptions();
     }
   }
 
   componentDidMount() {
     this.props.fetchSingleCourse(this.props.match.params.courseId)
-      .then(null,() => this.props.history.push('/'));
+      .then(
+        () => this.props.fetchSubscriptions(),
+        () => this.props.history.push('/'));
+  }
+
+  subscribeUser() {
+    if (!this.props.loggedIn) {
+      this.props.openModal("login");
+    } else {
+      let user_id = this.props.userId;
+      let course_id = this.props.course.id;
+      this.props.postSubscription({user_id, course_id});
+    }
+  }
+
+  subscriptionComponent() {
+    if(!this.props.subscribed) {
+      return(<button onClick={this.subscribeUser}
+        className="btn btn-primary">Subscribe</button>);
+    } else {
+      return(
+        <div className="course-show-header-subscribed">
+          <span className="course-show-header-text">Subscribed</span>
+          <span className="fa-stack fa-1x">
+            <i className="fas fa-circle fa-stack-1x"></i>
+            <i className="fas fa-check-circle fa-stack-1x"></i>
+          </span>
+
+        </div>);
+    }
   }
 
   render() {
@@ -32,7 +65,7 @@ class CourseShow extends React.Component {
             </div>
             <div className="course-show-header-inner-right">
               <div className="course-show-header-title">{course.title}</div>
-              <button className="btn btn-primary">Subscribe</button>
+              {this.subscriptionComponent()}
               <CourseRatings
                 className={"course-item-ratings"}
                 course={course}
@@ -40,7 +73,7 @@ class CourseShow extends React.Component {
             </div>
           </div>
         </div>
-        <LessonsIndex lessons={this.props.lessons} />
+        <LessonsIndexContainer />
       </main>
       );
     }

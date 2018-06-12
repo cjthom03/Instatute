@@ -3,7 +3,6 @@
   max-width: 1200px;
   margin: 10px auto;
   flex-wrap: wrap;
-  justify-content: space-between;
 }
 
 .course-index-header {
@@ -20,7 +19,8 @@
 .course-item-container {
   width: 216px;
   height: 290px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  margin-right: 24px;
   box-shadow: 0 0 1px 1px rgba(20,23,28,.1), 0 3px 1px 0 rgba(20,23,28,.1);
   transition: all 0.2s ease-in-out;
 }
@@ -88,4 +88,25 @@
 
 .course-item-ratings .fas.empty {
   color: #dedfe0;
+}
+
+.course-show-header-subscribed {
+  font-size: 18px;
+}
+
+.course-show-header-subscribed .fas {
+
+}
+.course-show-header-subscribed .fa-circle {
+  font-size: 23px;
+  color: #fff;
+}
+
+.course-show-header-subscribed .fa-circle {
+  font-size: 24px;
+  color: #007791;
+}
+
+.course-show-header-subscribed .fa-stack {
+  vertical-align: -34%;
 }
