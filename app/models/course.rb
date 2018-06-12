@@ -12,11 +12,21 @@
 #
 
 class Course < ApplicationRecord
+  include PgSearch
   validates :title, :author, :description, :image_url, presence: true
 
   has_many :ratings
   has_many :lessons
   has_many :subscriptions
+
+  pg_search_scope :search_full_text,
+    against: {
+      title: 'A',
+      description: 'B'},
+    using: {
+      tsearch: {prefix: true, any_word: true},
+
+    }
 
   def avgRating(ratings = self.ratings)
     (ratings.map{|r| r.rating }.reduce(:+)).fdiv(ratings.length).round(1)
