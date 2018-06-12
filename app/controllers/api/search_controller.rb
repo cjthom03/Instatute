@@ -2,7 +2,8 @@ class Api::SearchController < ApplicationController
   def index
     query = params[:search][:query] || parseQuery
     limit = params[:search][:limit]
-    @results = Course.search_full_text(query).limit(limit)
+    @results = Course.includes(:lessons, :ratings)
+      .search_full_text(query).limit(limit)
 
     params[:search][:query] ? (render :dropdown) : (render :index)
   end
