@@ -10,6 +10,10 @@ class LessonsIndex extends React.Component {
     }
   }
 
+  componentWillUnmount() {
+    this.props.clearSubscriptionErrors();
+  }
+
   render(){
     let lessons = lessonsToArray(this.props.lessons);
     return(

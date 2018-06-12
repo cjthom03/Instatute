@@ -6,30 +6,38 @@ import Sidebar from './sidebar';
 class ActiveLesson extends React.Component {
   constructor(props) {
     super(props);
-    this.validateLesson = this.validateLesson.bind(this);
     this.checkPreviousLesson = this.checkPreviousLesson.bind(this);
     this.checkNextLesson = this.checkNextLesson.bind(this);
+    debugger;
   }
 
   componentDidMount() {
+    debugger;
     this.props.fetchSingleCourse(this.props.match.params.courseId)
-      .then(
-        null,
-        () => this.props.history.push('/')
-      );
+      .then(() => this.props.fetchSubscriptions()
+        .then(
+          () => this.validateLessonSubscription()),
+        () => this.props.history.push('/'));
   }
 
   componentWillReceiveProps(nextProps) {
+    debugger;
     if (this.props.course.id != nextProps.match.params.courseId ||
     this.props.activeLesson.id != nextProps.match.params.lessonId) {
       this.props.fetchSingleCourse(nextProps.match.params.courseId)
-        .then(() => this.validateLesson(),
+        .then( () => this.props.fetchSubscriptions()
+          .then(
+            () => this.validateLessonSubscription()),
           () => this.props.history.push('/'));
     }
   }
 
-  validateLesson() {
+  validateLessonSubscription() {
+    debugger;
     if(!this.props.lessons[this.props.match.params.lessonId]) {
+      this.props.history.push(`/courses/${this.props.course.id}`);
+    } else if(!this.props.subscriptions[this.props.course.id]) {
+      this.props.receiveSubcriptionErrors(["Please subscribe to view lessons"]);
       this.props.history.push(`/courses/${this.props.course.id}`);
     }
   }
@@ -74,7 +82,7 @@ class ActiveLesson extends React.Component {
 
   render(){
     let ytId = this.props.activeLesson.video_id;
-
+      if(this.props.subscriptions[this.props.course.id]){
       return(
         <div>
           <Sidebar />
@@ -108,6 +116,9 @@ class ActiveLesson extends React.Component {
           </div>
         </div>
       );
+    } else {
+      return(<div className="active-lesson-container"></div>);
+    }
   }
 }
 

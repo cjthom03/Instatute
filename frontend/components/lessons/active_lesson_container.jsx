@@ -2,7 +2,10 @@ import { connect } from 'react-redux';
 import ActiveLesson from './active_lesson';
 import { _nullCourse, _nullLesson} from '../../util/null_objects';
 import { fetchSingleCourse } from '../../actions/course_actions';
-import { fetchSubscriptions } from '../../actions/subscription_actions';
+import {
+  fetchSubscriptions,
+  receiveSubcriptionErrors
+} from '../../actions/subscription_actions';
 import { lessonOrderToArray } from '../../reducers/lesson_selectors';
 import { openSidebar } from '../../actions/sidebar_actions';
 
@@ -21,6 +24,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => ({
   fetchSingleCourse: courseId => dispatch(fetchSingleCourse(courseId)),
   fetchSubscriptions: () => dispatch(fetchSubscriptions()),
+  receiveSubcriptionErrors: errors => dispatch(receiveSubcriptionErrors(errors)),
   openSidebar: () => dispatch(openSidebar())
 });
 
