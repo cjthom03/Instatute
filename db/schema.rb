@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_11_153652) do
+ActiveRecord::Schema.define(version: 2018_06_13_181847) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "completions", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "lesson_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["lesson_id"], name: "index_completions_on_lesson_id"
+    t.index ["user_id", "lesson_id"], name: "index_completions_on_user_id_and_lesson_id", unique: true
+  end
 
   create_table "courses", force: :cascade do |t|
     t.string "title", null: false
@@ -22,6 +31,7 @@ ActiveRecord::Schema.define(version: 2018_06_11_153652) do
     t.string "image_url", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["description"], name: "index_courses_on_description"
     t.index ["title"], name: "index_courses_on_title"
   end
 
