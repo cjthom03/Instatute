@@ -91,3 +91,46 @@
   justify-content: flex-end;
   align-items: flex-end;
 }
+
+.no-results-container {
+  min-height: 100%;
+  background: #f2f3f5;
+  color: #505763
+}
+
+.no-results-inner {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+  display: flex;
+  align-items: center;
+}
+
+.no-results-inner-left {
+  width: 66.667%;
+}
+
+.no-results-inner-left-top {
+  color: #505763;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 33px;
+  text-align: left;
+  margin-top: -30px;
+}
+
+.no-results-inner-left-bottom {
+  margin-top: 30px;
+  font-size: 18px;
+}
+
+.no-results-inner-left ul {
+  font-size: 15px;
+  margin-top: 15px;
+  list-style: inside;
+}
+
+.no-results-inner-right {
+  width: 33.33333333%;
+  font-size: 230px;
+}

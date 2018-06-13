@@ -42,3 +42,31 @@
   border-radius: 0 0 2px 2px;
   width: calc(100% + 30px);
 }
+
+.dropdown-search-item-wrapper {
+  display: flex;
+  padding: 5px 16px;
+  align-items: center;
+  color: #505763;
+  font-size: 15px;
+}
+
+.dropdown-search-item-wrapper:hover {
+  color: #007791;
+  background-color: #f2f3f5;
+  cursor: pointer;
+}
+
+.dropdown-search-item-wrapper:last-child {
+  margin-bottom: 5px;
+}
+
+.dropdown-search-item-wrapper:first-child {
+  margin-top: 5px;
+}
+
+.dropdown-search-item-icon {
+  margin-right: 10px;
+  color: #cacbcc;
+  vertical-align: -8%;
+}

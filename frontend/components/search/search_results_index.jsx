@@ -1,5 +1,6 @@
 import React from 'react';
 import SearchResultsIndexItem from './search_results_index_item';
+import NoSearchResultsBanner from '../banners/no_search_results_banner';
 
 class SearchResultsIndex extends React.Component {
   constructor(props) {
@@ -18,15 +19,18 @@ class SearchResultsIndex extends React.Component {
   }
 
   render() {
+    let courses = this.props.courses;
+    let query = this.props.location.search.split("=")[1];
+
     if (this.props.loading){
       return(
         <div className="search-results-container">
           <div className="loader">Loading...</div>
         </div>
       );
+    } else if(!courses.length) {
+      return (<NoSearchResultsBanner query={decodeURI(query)}/>);
     } else {
-      let courses = this.props.courses;
-      let query = this.props.location.search.split("=")[1];
       return(
         <div className="search-results-container">
           <div className="search-results-header-title">
