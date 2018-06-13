@@ -49,12 +49,17 @@
   align-items: center;
   color: #505763;
   font-size: 15px;
+  cursor: pointer;
 }
 
 .dropdown-search-item-wrapper:hover {
   color: #007791;
   background-color: #f2f3f5;
-  cursor: pointer;
+}
+
+.active .dropdown-search-item-wrapper {
+  color: #007791;
+  background-color: #f2f3f5;
 }
 
 .dropdown-search-item-wrapper:last-child {
