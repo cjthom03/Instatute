@@ -1,3 +1,6 @@
+.search-container {
+  position: relative;
+}
 .search-input {
   background-color: #f2f3f5;
   border: 1px solid transparent;
@@ -16,7 +19,6 @@
 
 .search-input-div {
   position: relative;
-  /* display: flex; */
 }
 
 .search-icon {
@@ -30,4 +32,13 @@
 .search-icon:hover {
   color: #fff;
   background-color: #ec5252;
+}
+
+.dropdown-search-container {
+  position: absolute;
+  top: 100%;
+  box-shadow: 0 4px 16px rgba(20,23,28,.25);
+  background: #fff;
+  border-radius: 0 0 2px 2px;
+  width: calc(100% + 30px);
 }

@@ -21,6 +21,12 @@ class SearchContainer extends React.Component {
     let query = e.target.value;
     this.setState({query});
     this.props.fetchDropdownSearchResults(query);
+    let modal = document.querySelector('#search-modal');
+     e.target.value ? (
+       modal.classList.add("searching")
+     ):(
+       modal.classList.remove("searching")
+     );
   }
 
   handleDropdownClick(e, query) {
@@ -36,11 +42,13 @@ class SearchContainer extends React.Component {
   submitAndClear(query) {
     this.props.history.push(`/search/?q=${query}`);
     this.props.clearSearchResults();
+    let modal = document.querySelector('#search-modal');
+    modal.classList.remove("searching");
   }
 
   render() {
     return(
-      <div>
+      <div className="search-container">
         <div className="search-input-div">
           <form onSubmit={(e) => this.handleSubmit(e)}>
             <input

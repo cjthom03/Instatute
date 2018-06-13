@@ -1,8 +1,10 @@
 .header-main {
   display: block;
+  position:relative;
   background: #fff;
   box-shadow: 0 0 1px 1px rgba(20,23,28,.1), 0 3px 1px 0 rgba(20,23,28,.1);
   font-family: "Open Sans", sans-serif;
+  z-index: 2;
 }
 
 .header-inner {
@@ -74,4 +76,13 @@
 
 .header-inner-right-logout-container .btn {
   margin-left: 10px;
+}
+
+#search-modal.searching {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
