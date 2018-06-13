@@ -84,7 +84,7 @@
   width: 27vw;
   position: fixed;
   background-color: #f2f3f6;
-  z-index: 3;
+  z-index: 11;
   padding-left: 15px;
   font-family: "Open Sans", sans-serif;
 }

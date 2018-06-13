@@ -11,7 +11,7 @@ import Root from './components/root';
   import {
     postCompletion,
     destroyCompletion
-  } from './util/completion_api_util';
+  } from './actions/completion_actions';
 
 //TEST END
 

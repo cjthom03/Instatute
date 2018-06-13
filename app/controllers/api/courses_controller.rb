@@ -14,6 +14,8 @@ class Api::CoursesController < ApplicationController
     if current_user
       @completions = Completion.joins(:course)
         .where("courses.id = ? AND completions.user_id = ?", params[:id], current_user.id)
+    else
+      @completions = []
     end
 
     if @course

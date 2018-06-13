@@ -11,10 +11,11 @@ const receiveCourses = courses => ({
   courses
 });
 
-const receiveSingleCourse = ({course, lessons}) => ({
+const receiveSingleCourse = ({course, lessons, completions}) => ({
   type: RECEIVE_SINGLE_COURSE,
   course,
-  lessons
+  lessons,
+  completions
 });
 
 const startLoadingCourses = () => ({
