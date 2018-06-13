@@ -30,7 +30,7 @@ class SearchResultsIndex extends React.Component {
       return(
         <div className="search-results-container">
           <div className="search-results-header-title">
-            {courses.length} results for <strong>{query}</strong>
+            {courses.length} results for <strong>{decodeURI(query)}</strong>
         </div>
         {courses.map( course =>
           <SearchResultsIndexItem
