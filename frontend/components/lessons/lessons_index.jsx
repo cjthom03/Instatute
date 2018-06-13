@@ -34,7 +34,11 @@ class LessonsIndex extends React.Component {
                 receiveSubcriptionErrors={this.props.receiveSubcriptionErrors}
                 history={this.props.history}
                 loggedIn={this.props.loggedIn}
+                userId={this.props.userId}
                 openModal={this.props.openModal}
+                completions={this.props.completions}
+                postCompletion={this.props.postCompletion}
+                destroyCompletion={this.props.destroyCompletion}
                 />
             )}
         </div>

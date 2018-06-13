@@ -14,10 +14,6 @@
   font-size: 15px;
 }
 
-.lessons-index-container button {
-  text-align: left;
-}
-
 .lesson-index-errors{
   color: #ec5252;
   font-size: 16px;
@@ -67,9 +63,19 @@
   margin-left: 2px;
 }
 
+.lessons-index-container button {
+  display: inline-block;
+}
+
 .lessons-index-container i {
   font-size: 1.3em;
   vertical-align: -8%;
+  transition: all 0.3s ease;
+}
+
+.lessons-index-container i:hover {
+  transform: scale(1.1);
+  color: #005061;
 }
 
 .lessons-index-container .fa-play-circle {
@@ -79,9 +85,8 @@
 .lesson-item-container:hover .fa-play-circle {
   color: #007791;
 }
-
-.lesson-item-container .fa-play-circle:hover {
-  color: #005061;
+.lesson-item-container .fa-check-circle {
+  color: #007791;
 }
 
 .lesson-item-container-right span {

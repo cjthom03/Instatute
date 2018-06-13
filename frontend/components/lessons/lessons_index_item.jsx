@@ -15,10 +15,28 @@ class LessonsIndexItem extends React.Component{
     }
   }
 
+  changeCompletion(e) {
+    debugger;
+    if(this.props.userId){
+      e.stopPropagation();
+      this.props.completions[this.props.lesson.id] ? (
+        this.props.destroyCompletion(this.props.completions[this.props.lesson.id].id)
+      ) : (
+        this.props.postCompletion({
+          user_id: this.props.userId,
+          lesson_id: this.props.lesson.id
+        })
+      );
+    }
+  }
+
+
   render(){
     let lesson = this.props.lesson;
+    let completions = this.props.completions;
+    let completionIcon = completions[lesson.id] ? "fas fa-check-circle" : "far fa-circle";
     return(
-      <button onClick={e => this.handleClick(e)}>
+      <a onClick={e => this.handleClick(e)}>
           <div className="lesson-item-container">
             <div className="lesson-item-container-left">
               <i className="far fa-play-circle"></i>
@@ -29,10 +47,12 @@ class LessonsIndexItem extends React.Component{
             </div>
             <div className="lesson-item-container-right">
               <span>{lesson.duration}</span>
-              <i className="far fa-circle"></i>
+              <button onClick={e => this.changeCompletion(e)}>
+                <i className={completionIcon}></i>
+              </button>
             </div>
           </div>
-      </button>
+      </a>
     );
   }
 }
