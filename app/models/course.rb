@@ -17,6 +17,7 @@ class Course < ApplicationRecord
 
   has_many :ratings
   has_many :lessons
+  has_many :completions, through: :lessons
   has_many :subscriptions
 
   pg_search_scope :search_full_text,

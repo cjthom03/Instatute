@@ -11,6 +11,10 @@ class Api::CoursesController < ApplicationController
 
   def show
     @course = Course.includes(:ratings, :lessons).find_by_id(params[:id])
+    if current_user
+      @completions = Completion.joins(:course)
+        .where("courses.id = ? AND completions.user_id = ?", params[:id], current_user.id)
+    end
 
     if @course
       render :show

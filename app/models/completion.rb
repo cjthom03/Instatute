@@ -13,7 +13,7 @@ class Completion < ApplicationRecord
   validates :user_id, uniqueness: { scope: :lesson_id,
     message: "cannot complete the same lesson more than once"}
 
-
   belongs_to :user
   belongs_to :lesson
+  has_one :course, through: :lesson
 end

@@ -2220,13 +2220,10 @@ demoSubsIds = [1, 3, 15, 24]
 
 demoSubsIds.each do |sub|
   Subscription.create!(user_id: demoUser.id, course_id: sub)
+  Subscription.create!(user_id: 2, course_id: sub)
   completeLessons = Course.find(sub).lessons.sample(3)
   completeLessons.each do |lesson|
-    Completion.create!(user_id: demoUser.id, lesson_id: lesson.id) 
+    Completion.create!(user_id: demoUser.id, lesson_id: lesson.id)
+    Completion.create!(user_id: 2, lesson_id: lesson.id)
   end
-
 end
-
-
-#COMPLETIONS
-#-----------------------------------------------------------------------

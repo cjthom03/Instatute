@@ -12,3 +12,13 @@ json.lessons do
     end
   end
 end
+
+if @completions
+  json.completions do
+    @completions.each do |completion|
+      json.set! completion.lesson_id do
+        json.extract! completion, :id, :lesson_id, :user_id
+      end
+    end
+  end
+end

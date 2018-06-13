@@ -14,4 +14,5 @@ class Subscription < ApplicationRecord
     message: "cannot subscribe to the same course more than once"}
   belongs_to :user
   belongs_to :course
+  has_many :lessons, through: :course
 end
