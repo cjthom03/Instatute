@@ -3,6 +3,13 @@
   margin: 50px auto;
 }
 
+.search-results-header-title {
+  margin-bottom: 30px;
+  font-size: 18px;
+  color: #686f7a;
+  font-weight: 300;
+}
+
 .search-result-item-container {
   max-height: 134px;
   width: 75%;

@@ -55,6 +55,13 @@ class CourseShow extends React.Component {
   }
 
   render() {
+    if (this.props.loading){
+      return(
+        <div className="search-results-container">
+          <div className="loader">Loading...</div>
+        </div>
+      );
+    } else {
     let course = this.props.course;
     return (
       <main>
@@ -78,6 +85,7 @@ class CourseShow extends React.Component {
       );
     }
   }
+}
 
 
 export default CourseShow;

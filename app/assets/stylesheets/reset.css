@@ -4,9 +4,10 @@ html, body, div, span, h1, h2, h3, h4, p, a, ol, ul, li, form, label, article, a
   border: 0;
   font-size: 100%;
   font: inherit;
-  font-family: inherit;
+  font-family: "Open Sans", sans-serif;
   vertical-align: baseline;
   text-decoration: none;
+  -webkit-font-smoothing: antialiased;
 }
 
 a {

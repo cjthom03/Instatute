@@ -5,7 +5,8 @@ import SearchResultsIndex from './search_results_index';
 
 
 const mapStateToProps = state => ({
-  courses: coursesToArray(state.entities.courses)
+  courses: coursesToArray(state.entities.courses),
+  loading: state.ui.loading
 });
 
 const mapDispatchToProps = dispatch => ({

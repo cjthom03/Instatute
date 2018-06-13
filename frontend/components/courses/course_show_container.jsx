@@ -14,7 +14,8 @@ const mapStateToProps = (state, ownProps) => ({
   subscriptions: state.entities.subscriptions,
   subscribed: Boolean(state.entities.subscriptions[ownProps.match.params.courseId]),
   loggedIn: Boolean(state.session.id),
-  userId: state.session.id
+  userId: state.session.id,
+  loading: state.ui.loading
 });
 
 const mapDispatchToProps = dispatch => ({

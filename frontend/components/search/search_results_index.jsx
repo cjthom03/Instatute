@@ -18,14 +18,27 @@ class SearchResultsIndex extends React.Component {
   }
 
   render() {
-
-    return(<div className="search-results-container">
-      {this.props.courses.map( course =>
-        <SearchResultsIndexItem
-          key={course.id}
-          course={course} />
-      )}
-    </div>);
+    if (this.props.loading){
+      return(
+        <div className="search-results-container">
+          <div className="loader">Loading...</div>
+        </div>
+      );
+    } else {
+      let courses = this.props.courses;
+      let query = this.props.location.search.split("=")[1];
+      return(
+        <div className="search-results-container">
+          <div className="search-results-header-title">
+            {courses.length} results for <strong>{query}</strong>
+        </div>
+        {courses.map( course =>
+          <SearchResultsIndexItem
+            key={course.id}
+            course={course} />
+        )}
+      </div>);
+    }
   }
 }
 

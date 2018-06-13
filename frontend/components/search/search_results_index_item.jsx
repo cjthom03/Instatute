@@ -24,9 +24,9 @@ const SearchResultsIndexItem = ({ course }) => {
           </div>
         <div className="search-result-item-card-left-bottom">
           <div className="search-result-meta">
-              <i class="fas fa-play-circle"></i>
+              <i className="fas fa-play-circle"></i>
               <span>{course.lesson_count} lessons</span>
-              <i class="far fa-clock"></i>
+              <i className="far fa-clock"></i>
               <span>{course.total_duration}</span>
             </div>
         </div>

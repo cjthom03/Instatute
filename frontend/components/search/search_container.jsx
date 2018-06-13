@@ -17,6 +17,7 @@ class SearchContainer extends React.Component {
   }
 
   handleSubmit(e){
+    e.preventDefault();
     this.props.history.push(`/search/?q=${this.state.query}`);
   }
 
