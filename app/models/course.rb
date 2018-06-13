@@ -24,8 +24,7 @@ class Course < ApplicationRecord
       title: 'A',
       description: 'B'},
     using: {
-      tsearch: {prefix: true, any_word: true},
-
+      tsearch: {prefix: true, any_word: true}
     }
 
   def avgRating(ratings = self.ratings)

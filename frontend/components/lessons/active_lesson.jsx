@@ -8,11 +8,9 @@ class ActiveLesson extends React.Component {
     super(props);
     this.checkPreviousLesson = this.checkPreviousLesson.bind(this);
     this.checkNextLesson = this.checkNextLesson.bind(this);
-    debugger;
   }
 
   componentDidMount() {
-    debugger;
     this.props.fetchSingleCourse(this.props.match.params.courseId)
       .then(() => this.props.fetchSubscriptions()
         .then(
@@ -21,7 +19,6 @@ class ActiveLesson extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    debugger;
     if (this.props.course.id != nextProps.match.params.courseId ||
     this.props.activeLesson.id != nextProps.match.params.lessonId) {
       this.props.fetchSingleCourse(nextProps.match.params.courseId)
@@ -33,7 +30,6 @@ class ActiveLesson extends React.Component {
   }
 
   validateLessonSubscription() {
-    debugger;
     if(!this.props.lessons[this.props.match.params.lessonId]) {
       this.props.history.push(`/courses/${this.props.course.id}`);
     } else if(!this.props.subscriptions[this.props.course.id]) {

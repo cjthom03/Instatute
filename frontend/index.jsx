@@ -4,10 +4,10 @@ import configureStore from './store/store';
 import Root from './components/root';
 
 //TEST START
-  // import {
-  //   fetchAllSearchResults,
-  //   fetchDropdownSearchResults
-  // } from './actions/search_actions';
+  import {
+    fetchAllSearchResults,
+    fetchDropdownSearchResults
+  } from './actions/search_actions';
   // import { fetchCourses } from './util/course_api_util';
 
 //TEST END
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   //TEST START
-    // window.fetchAllSearchResults = fetchAllSearchResults;
+    window.fetchAllSearchResults = fetchAllSearchResults;
     // window.fetchDropdownSearchResults = fetchDropdownSearchResults;
     // window.fetchCourses = fetchCourses;
     window.getState = store.getState;

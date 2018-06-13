@@ -16,6 +16,7 @@ import CourseContainer from './courses/course_container';
 import CourseShowContainer from './courses/course_show_container';
 import ActiveLessonContainer from './lessons/active_lesson_container';
 import MyCoursesContainer from './courses/my_courses_container';
+import SearchResultsContainer from './search/search_results_container';
 
 
 export default () => (
@@ -28,6 +29,8 @@ export default () => (
     </Switch>
 
     <Switch>
+      <Route path='/search'
+        component={SearchResultsContainer} />
       <ProtectedRoute path='/my-courses'
         component={MyCoursesContainer}/>
       <ProtectedRoute path='/courses/:courseId/lessons/:lessonId'

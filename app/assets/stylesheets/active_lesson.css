@@ -57,6 +57,10 @@
   font-size: 18px;
 }
 
+.active-lesson-upper-left button {
+  display: inline-block;
+}
+
 .active-lesson-footer {
   z-index: 2;
   color: #d3d4d6;

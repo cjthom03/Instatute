@@ -20,6 +20,7 @@ button {
   background-color: inherit;
   color: inherit;
   font: inherit;
+  display: block;
 }
 
 button:focus {
