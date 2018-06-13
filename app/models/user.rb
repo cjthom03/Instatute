@@ -21,6 +21,7 @@ class User < ApplicationRecord
   before_validation :ensure_token
 
   has_many :subscriptions
+  has_many :completions
 
   def self.find_by_credentials(email, password)
     user = User.find_by_email(email)

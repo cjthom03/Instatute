@@ -17,6 +17,7 @@ class Lesson < ApplicationRecord
     :content_duration, presence: true
 
   belongs_to :course
+  has_many :completions
 
   def formatDuration(duration = self.content_duration)
     mins = duration / 60
