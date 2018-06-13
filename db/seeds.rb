@@ -2210,35 +2210,23 @@ Course.all.each do |course|
     rating = 3 + rand(3)
     Rating.create!(rating: rating, course_id: course.id)
   end
-
-  # num_courses = course.id + 5
-  # num_courses.times do |n|
-  #   duration = 120 + rand(1800)
-  #   Lesson.create!(
-  #     course_id: course.id,
-  #     title: "The only lesson there is. (Also, some extra text is here to test css wraps).",
-  #     order_num: n + 1,
-  #     content_url: "https://www.youtube.com/watch?v=U9t-slLl30E",
-  #     content_duration: duration)
-  # end
 end
 
-#SUBSCRIPTIONS
+#SUBSCRIPTIONS & COMPLETIONS
 #-----------------------------------------------------------------------
 
 demoUser = User.find_by_full_name("Demo User")
+demoSubsIds = [1, 3, 15, 24]
 
-Subscription.create!(
-  user_id: demoUser.id,
-  course_id: 1
-)
+demoSubsIds.each do |sub|
+  Subscription.create!(user_id: demoUser.id, course_id: sub)
+  completeLessons = Course.find(sub).lessons.sample(3)
+  completeLessons.each do |lesson|
+    Completion.create!(user_id: demoUser.id, lesson_id: lesson.id) 
+  end
 
-Subscription.create!(
-  user_id: demoUser.id,
-  course_id: 15
-)
+end
 
-Subscription.create!(
-  user_id: demoUser.id,
-  course_id: 23
-)
+
+#COMPLETIONS
+#-----------------------------------------------------------------------
