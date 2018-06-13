@@ -20,8 +20,8 @@ class User < ApplicationRecord
 
   before_validation :ensure_token
 
-  has_many :subscriptions
-  has_many :completions
+  has_many :subscriptions, dependent: :destroy
+  has_many :completions, dependent: :destroy
 
   def self.find_by_credentials(email, password)
     user = User.find_by_email(email)

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :courses, only: [:index, :show]
     resources :subscriptions, only: [:index, :create]
     resources :search, only: [:index]
+    resources :completions, only: [:create, :destroy]
   end
 
 end
