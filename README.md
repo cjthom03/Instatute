@@ -2,14 +2,14 @@
 
 [Live Demo](https://udemy-clone.herokuapp.com/)
 
-Instatute is an online learning market where users can subscribe to courses (for free) and view video lessons. Instatute's design is intended to clone Udemy's basic design and layout, while the content comes directly from Khan Academy's YouTube videos.
+Instatute is an online learning market where users can subscribe to courses (for free) and view video lessons. Instatute's design is intended to clone Udemy's UI/UX, while the content comes directly from Khan Academy's YouTube videos.
 
 Instatute makes use of a Rails/PostgreSQL backend with a React.js and Redux frontend.
 
 This project was designed and built under a two-week deadline, although enhancements will be added over time.
 
 This README covers the following:
-* [Feature](https://github.com/cjthom03/UdemyClone#features)
+* [Features](https://github.com/cjthom03/UdemyClone#features)
 * [Project Design](https://github.com/cjthom03/UdemyClone#project-design)
 * [Technologies](https://github.com/cjthom03/UdemyClone#technologies)
 * [Possible Future Features](https://github.com/cjthom03/UdemyClone#possible-future-features)
@@ -25,13 +25,16 @@ This README covers the following:
 * Users have the option of manually marking lessons complete or incomplete
 
 ### Signup & Login Modals
-Users are encouraged to explore the site and the courses, and should only being required to login when they want to access the lesson videos. To accomplish this, a login modal is displayed in order to avoid redirecting the user to a different login page, and in such a way as to let the user know that any further interaction with the site requires user authentication.
+Users are encouraged to explore the site and the courses, and should only being required to login when they want to access the lesson videos. For this reason, if the user tries to interact with the application in such a way that requires user authentication, a login modal is displayed on the same page instead of redirecting the user to a different login page.
+
+![Demo of login modal](https://s3-us-west-1.amazonaws.com/cjthom03-udemyclone/DemoGifs/Demo_SessionModal.gif)
 
 This was accomplished by maintaining a `ui.modal` slice of state that, when set to `true` by dispatching an `openModal(modal)` action, would render the login or signup form on the current page. Below is an example of this implementation when a user clicks on a lesson.
 
 ```javascript
     // When a user clicks on a lesson, check if they are logged in
     // If not, open the login modal
+
     handleClick(e) {
       let lesson = this.props.lesson;
       if(!this.props.loggedIn) {
