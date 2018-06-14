@@ -71,7 +71,13 @@
 
 .header-username {
   font-weight: 100;
-  font-style: oblique;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 33%;
+  font-size: 15px;
 }
 
 .header-inner-right-logout-container .btn {

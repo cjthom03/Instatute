@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { _nullCourse } from '../../util/null_objects';
+import { nextLesson } from '../../reducers/lesson_selectors';
 import { fetchSingleCourse } from '../../actions/course_actions';
 import {
   fetchSubscriptions,
@@ -14,6 +15,7 @@ const mapStateToProps = (state, ownProps) => ({
   subscriptions: state.entities.subscriptions,
   subscribed: Boolean(state.entities.subscriptions[ownProps.match.params.courseId]),
   completions: state.entities.completions,
+  nextLesson: nextLesson(state.entities.lessons, state.entities.completions),
   loggedIn: Boolean(state.session.id),
   userId: state.session.id,
   loading: state.ui.loading

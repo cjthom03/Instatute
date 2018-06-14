@@ -38,13 +38,16 @@
   width: 55%;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 .course-show-header-inner-right button {
   min-width: 180px;
-  max-width: 180px;
-  font-weight: 300;
+  max-width: 215px;
+  font-weight: 600;
   letter-spacing: 0.5px;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
 .course-show-header-inner-right .course-item-ratings {
@@ -56,10 +59,12 @@
   margin-right: 4px;
 }
 
-.course-show-header-progress {
-  margin-top: 55px;
-}
 
 .course-show-header-progress svg {
   margin-top: 10px;
+  margin-bottom: -5px;
+}
+
+.course-show-progress-bar {
+  border-radius: 2px;
 }

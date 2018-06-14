@@ -8,10 +8,10 @@ import Root from './components/root';
   //   fetchAllSearchResults,
   //   fetchDropdownSearchResults
   // } from './actions/search_actions';
-  import {
-    postCompletion,
-    destroyCompletion
-  } from './actions/completion_actions';
+  // import {
+  //   postCompletion,
+  //   destroyCompletion
+  // } from './actions/completion_actions';
 
 //TEST END
 
@@ -34,10 +34,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   //TEST START
-    window.postCompletion = postCompletion;
-    window.destroyCompletion = destroyCompletion;
-    window.getState = store.getState;
-    window.dispatch = store.dispatch;
+    // window.postCompletion = postCompletion;
+    // window.destroyCompletion = destroyCompletion;
+    // window.getState = store.getState;
+    // window.dispatch = store.dispatch;
   //TEST END
 
   ReactDOM.render(<Root store={store} />, rootEl);

@@ -2,7 +2,7 @@ import React from 'react';
 import { Redirect } from 'react-router-dom';
 import CourseRatings from './ratings';
 import LessonsIndexContainer from '../lessons/lessons_container';
-import { Line } from 'rc-progress';
+import ProgressBar from './progress_bar';
 
 
 class CourseShow extends React.Component {
@@ -40,18 +40,45 @@ class CourseShow extends React.Component {
 
   subscriptionComponent() {
     if(!this.props.subscribed) {
-      return(<button onClick={this.subscribeUser}
-        className="btn btn-primary">Subscribe</button>);
+      return(
+        <button
+          onClick={this.subscribeUser}
+          className="btn btn-primary">
+          Subscribe
+        </button>
+    );
+    } else if (this.props.nextLesson) {
+      let buttonText = !Object.keys(this.props.completions).length ? ("Start Course") : (`Continue to Lesson ${this.props.nextLesson.order_num}`);
+      return(
+        <button
+          onClick={() => this.props.history.push(`/courses/${this.props.course.id}/lessons/${this.props.nextLesson.id}`)}
+          className="btn btn-primary">
+          {buttonText}
+        </button>)
+      ;
     } else {
       return(
         <div className="course-show-header-subscribed">
-          <span className="course-show-header-text">Subscribed</span>
+          <span className="course-show-header-text">Completed</span>
           <span className="fa-stack fa-1x">
             <i className="fas fa-circle fa-stack-1x"></i>
             <i className="fas fa-check-circle fa-stack-1x"></i>
           </span>
 
         </div>);
+    }
+  }
+
+  progressComponent() {
+    if(this.props.subscribed) {
+      let completionCount = Object.keys(this.props.completions).length;
+      let lessonCount = this.props.course.lesson_count;
+      return (
+        <ProgressBar
+        completionCount={completionCount}
+        lessonCount={lessonCount}
+        />
+      );
     }
   }
 
@@ -64,8 +91,7 @@ class CourseShow extends React.Component {
       );
     } else {
     let course = this.props.course;
-    let completionCount = Object.keys(this.props.completions).length;
-    let completionPercent = (completionCount / this.props.course.lesson_count) * 100;
+
     return (
       <main>
         <div className="course-show-header-container">
@@ -74,21 +100,16 @@ class CourseShow extends React.Component {
               <img src={course.image_url} />
             </div>
             <div className="course-show-header-inner-right">
-              <div className="course-show-header-title">{course.title}</div>
-              {this.subscriptionComponent()}
-              <CourseRatings
-                className={"course-item-ratings"}
-                course={course}
-                />
-              <div className="course-show-header-progress">
-                <strong>{completionCount}</strong> of <strong>{this.props.course.lesson_count}</strong> lessons complete
-                <Line
-                  percent={completionPercent}
-                  strokeWidth="2.5"
-                  strokeColor="#ffffff"
-                  trailWidth="2.5"
-                  trailColor="#676e79"
-                  strokeLinecap="round" />
+              <div className="course-show-header-inner-top">
+                <div className="course-show-header-title">{course.title}</div>
+                {this.subscriptionComponent()}
+                <CourseRatings
+                  className={"course-item-ratings"}
+                  course={course}
+                  />
+              </div>
+              <div className="course-show-header-inner-bottom">
+                {this.progressComponent()}
               </div>
             </div>
           </div>

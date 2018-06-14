@@ -6,3 +6,19 @@ export const lessonsToArray = lessons => {
 export const lessonOrderToArray = lessons => {
   return Object.keys(lessons).map(id => lessons[id].order_num);
 };
+
+export const nextLesson = (lessons, completions) => {
+  lessons = lessonsToArray(lessons);
+
+  let result = null;
+  for (let i = 0; i < lessons.length; i++) {
+    let lesson = lessons[i];
+    if (!completions[lesson.id]) {
+      result = lesson;
+      break;
+    }
+  }
+
+  return result;
+
+};

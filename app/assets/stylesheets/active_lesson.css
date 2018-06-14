@@ -87,6 +87,7 @@
   z-index: 11;
   padding-left: 15px;
   font-family: "Open Sans", sans-serif;
+  overflow: scroll;
 }
 
 .sidebar-button {

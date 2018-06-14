@@ -8,13 +8,11 @@ import YouTube from 'react-youtube';
 class ActiveLesson extends React.Component {
   constructor(props) {
     super(props);
-    this.checkPreviousLesson = this.checkPreviousLesson.bind(this);
-    this.checkNextLesson = this.checkNextLesson.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchSingleCourse(this.props.match.params.courseId)
-      .then(() => this.props.fetchSubscriptions()
+      .then( () => this.props.fetchSubscriptions()
         .then(
           () => this.validateLessonSubscription()),
         () => this.props.history.push('/'));
@@ -41,32 +39,24 @@ class ActiveLesson extends React.Component {
     }
   }
 
-  checkPreviousLesson() {
+  checkForLesson(num, text) {
     let activeLesson = this.props.activeLesson;
-    if(this.props.lessonOrder.indexOf(activeLesson.order_num - 1) >= 0){
+    let prevIcon = num === -1  ? (<i className={`fas fa-angle-double-left`}></i>) : "";
+    let nextIcon = num === 1 ? (<i className={`fas fa-angle-double-right`}></i>) : "";
+
+    if(this.props.lessonOrder.indexOf(activeLesson.order_num + num) >= 0){
       let courseId = this.props.course.id;
-      let prevLessonId = this.getLessonId(activeLesson.order_num - 1);
+      let lessonId = this.getLessonId(activeLesson.order_num + num);
       return(
         <div>
-          <i className="fas fa-angle-double-left"></i>
-          <span><Link to={`/courses/${courseId}/lessons/${prevLessonId}`}>Previous</Link></span>
+          <Link to={`/courses/${courseId}/lessons/${lessonId}`}>
+            {prevIcon}
+            <span>{text}</span>
+            {nextIcon}
+          </Link>
         </div>);
     }
   }
-
-  checkNextLesson() {
-    let activeLesson = this.props.activeLesson;
-    if(this.props.lessonOrder.indexOf(activeLesson.order_num + 1) >= 0){
-      let courseId = this.props.course.id;
-      let nextLessonId = this.getLessonId(activeLesson.order_num + 1);
-    return(
-      <div>
-        <span><Link to={`/courses/${courseId}/lessons/${nextLessonId}`}>Next</Link></span>
-        <i className="fas fa-angle-double-right"></i>
-      </div>
-    );
-  }
-}
 
   getLessonId(orderNum) {
     let result;
@@ -106,12 +96,16 @@ class ActiveLesson extends React.Component {
           <Sidebar />
           <div className="active-lesson-header">
             <div className="active-lesson-upper-left">
-              <button onClick={() => this.props.openSidebar()}><i className="fas fa-list-ul"></i></button>
+              <button onClick={() => this.props.openSidebar()}>
+                <i className="fas fa-list-ul"></i>
+              </button>
               <span>
                 {this.props.activeLesson.order_num}. {this.props.activeLesson.title}</span>
             </div>
             <div className="active-lesson-upper-right">
-              <span><Link to={`/courses/${this.props.course.id}`}>Back to course</Link></span>
+              <span>
+                <Link to={`/courses/${this.props.course.id}`}>Back to course</Link>
+              </span>
             </div>
           </div>
           <div className="active-lesson-container">
@@ -121,15 +115,14 @@ class ActiveLesson extends React.Component {
                 opts={opts}
                 onEnd={(e) => this.handleCompletion(e)}
                 />
-
             </div>
           </div>
           <div className="active-lesson-footer">
             <div className="active-lesson-footer-left">
-              {this.checkPreviousLesson()}
+              {this.checkForLesson(-1, "Previous")}
             </div>
             <div className="active-lesson-footer-right">
-              {this.checkNextLesson()}
+              {this.checkForLesson(1, "Next")}
             </div>
           </div>
         </div>
