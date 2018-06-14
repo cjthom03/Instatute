@@ -24,17 +24,26 @@ This README covers the following:
 * Lesson completion is registered at the end of each video, and tracked on the course page
 * Users have the option of manually marking lessons complete or incomplete
 
+### Signup & Login Modals
+
+### Search
+
+### Subscriptions & My Courses
+
+### Lesson Videos & Lesson Completion
+
+
 
 ## Project Design
 Instatute is intended to be simple, clean, and easy to navigate - allowing the user to spend more time focusing on their learning goals. Given the two-week timeframe, it was decided to focus on a core set of features that would result in a minimum viable product for a learning application that runs smoothly and bug-free. A manageable codebase was prioritized over trying to clone every major feature of the target application (Udemy).
 
 ### Design Documents
 Application features and layout design documents are available in the project [wiki](https://github.com/cjthom03/UdemyClone/wiki), and each feature was tracked on the project [issues page](https://github.com/cjthom03/UdemyClone/issues). The following design documents are available:
-+ [MVP List](mvp-list)
-+ [Database Schema](schema-information)
-+ [Routes](routes)
-+ [Sample State](sample-state)
-+ [Component Hierarchy with Wireframes](component-hierarchy-with-wireframes)
++ [MVP List](https://github.com/cjthom03/UdemyClone/wiki/MVP-List)
++ [Database Schema](https://github.com/cjthom03/UdemyClone/wiki/Schema-Information)
++ [Routes](https://github.com/cjthom03/UdemyClone/wiki/Routes)
++ [Sample State](https://github.com/cjthom03/UdemyClone/wiki/Sample-State)
++ [Component Hierarchy with Wireframes](https://github.com/cjthom03/UdemyClone/wiki/Component-Hierarchy-with-Wireframes)
 
 
 ## Technologies
