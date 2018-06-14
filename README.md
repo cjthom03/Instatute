@@ -122,6 +122,7 @@ Users can register lesson completion in two ways. Automatically, by watching a v
 ![Demo of automatically setting lesson completion](https://s3-us-west-1.amazonaws.com/cjthom03-udemyclone/DemoGifs/Demo_AutoComplete.gif)
 
 Or, by manually toggling the completion check-mark on each lesson. Lesson progress is tracked on the course page, which updates automatically.
+
 ![Demo of manually setting lesson completion](https://s3-us-west-1.amazonaws.com/cjthom03-udemyclone/DemoGifs/Demo_ManualCompletion.gif)
 
 ## Project Design
