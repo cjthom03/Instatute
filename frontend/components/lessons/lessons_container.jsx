@@ -9,6 +9,7 @@ import {
   destroyCompletion
 } from '../../actions/completion_actions';
 import { openModal } from '../../actions/modal_actions';
+import { lessonsToArray } from '../../reducers/lesson_selectors';
 import LessonsIndex from './lessons_index';
 
 const mapStateToProps = (state, ownProps) => ({
@@ -16,7 +17,7 @@ const mapStateToProps = (state, ownProps) => ({
   subscriptionErrors: state.errors.subscription,
   loggedIn: Boolean(state.session.id),
   userId: state.session.id,
-  lessons: state.entities.lessons,
+  lessons: lessonsToArray(state.entities.lessons),
   completions: state.entities.completions
 });
 

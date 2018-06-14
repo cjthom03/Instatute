@@ -1,10 +1,11 @@
 import React from 'react';
-import { lessonsToArray } from '../../reducers/lesson_selectors';
+
 import LessonsIndexItem from './lessons_index_item';
 
 class LessonsIndex extends React.Component {
 
   componentWillReceiveProps(nextProps) {
+    debugger;
     if(this.props.match.params.courseId !== nextProps.match.params.courseId){
       this.props.clearSubscriptionErrors();
     }
@@ -15,7 +16,8 @@ class LessonsIndex extends React.Component {
   }
 
   render(){
-    let lessons = lessonsToArray(this.props.lessons);
+    let lessons = this.props.lessons;
+    debugger;
     return(
       <div className="lessons-main">
         <div className="lessons-index-container">
