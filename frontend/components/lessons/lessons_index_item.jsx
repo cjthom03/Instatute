@@ -16,8 +16,7 @@ class LessonsIndexItem extends React.Component{
   }
 
   changeCompletion(e) {
-    debugger;
-    if(this.props.userId){
+    if(this.props.userId && this.props.subscribed){
       e.stopPropagation();
       this.props.completions[this.props.lesson.id] ? (
         this.props.destroyCompletion(this.props.completions[this.props.lesson.id].id)

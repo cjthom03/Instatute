@@ -7,6 +7,7 @@ import {
   receiveSubcriptionErrors
 } from '../../actions/subscription_actions';
 import { lessonOrderToArray } from '../../reducers/lesson_selectors';
+import { postCompletion } from '../../actions/completion_actions';
 import { openSidebar } from '../../actions/sidebar_actions';
 
 const mapStateToProps = (state, ownProps) => {
@@ -17,7 +18,9 @@ const mapStateToProps = (state, ownProps) => {
   lessons: state.entities.lessons,
   lessonOrder: lessonOrderToArray(state.entities.lessons),
   subscriptions: state.entities.subscriptions,
-  subscribed: Boolean(state.entities.subscriptions[ownProps.match.params.courseId])
+  subscribed: Boolean(state.entities.subscriptions[ownProps.match.params.courseId]),
+  completions: state.entities.completions,
+  userId: state.session.id
   });
 };
 
@@ -25,6 +28,7 @@ const mapDispatchToProps = dispatch => ({
   fetchSingleCourse: courseId => dispatch(fetchSingleCourse(courseId)),
   fetchSubscriptions: () => dispatch(fetchSubscriptions()),
   receiveSubcriptionErrors: errors => dispatch(receiveSubcriptionErrors(errors)),
+  postCompletion: completion => dispatch(postCompletion(completion)),
   openSidebar: () => dispatch(openSidebar())
 });
 

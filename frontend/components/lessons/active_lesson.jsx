@@ -2,6 +2,8 @@ import React from 'react';
 import LessonsIndex from './lessons_index';
 import { Link } from 'react-router-dom';
 import Sidebar from './sidebar';
+import YouTube from 'react-youtube';
+
 
 class ActiveLesson extends React.Component {
   constructor(props) {
@@ -32,7 +34,8 @@ class ActiveLesson extends React.Component {
   validateLessonSubscription() {
     if(!this.props.lessons[this.props.match.params.lessonId]) {
       this.props.history.push(`/courses/${this.props.course.id}`);
-    } else if(!this.props.subscriptions[this.props.course.id]) {
+    }
+    else if(!this.props.subscriptions[this.props.course.id]) {
       this.props.receiveSubcriptionErrors(["Please subscribe to view lessons"]);
       this.props.history.push(`/courses/${this.props.course.id}`);
     }
@@ -74,10 +77,29 @@ class ActiveLesson extends React.Component {
     return result;
   }
 
+  handleCompletion(e) {
+    if(!this.props.completions[this.props.activeLesson.id]) {
+      let user_id = this.props.userId;
+      let lesson_id = this.props.activeLesson.id;
+      this.props.postCompletion({user_id, lesson_id});
+    }
 
+  }
 
   render(){
     let ytId = this.props.activeLesson.video_id;
+    const opts = {
+      width: "640",
+      height: "390",
+      playerVars: {
+        enablejsapi: 1,
+        autoplay: 1,
+        iv_load_policy: 3,
+        rel: 0,
+        showinfo: 0
+      }
+    };
+
       if(this.props.subscriptions[this.props.course.id]){
       return(
         <div>
@@ -94,12 +116,12 @@ class ActiveLesson extends React.Component {
           </div>
           <div className="active-lesson-container">
             <div className="video-responsive">
-              <iframe id="player" type="text/html"
-                width="640" height="390"
-                src=
-                {`https://www.youtube.com/embed/${ytId}?enablejsapi=1&autoplay=1&iv_load_policy=3&rel=0&showinfo=0`}
-                frameBorder="0"
-                allowFullScreen></iframe>
+              <YouTube
+                videoId={ytId}
+                opts={opts}
+                onEnd={(e) => this.handleCompletion(e)}
+                />
+
             </div>
           </div>
           <div className="active-lesson-footer">
