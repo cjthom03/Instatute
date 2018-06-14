@@ -52,6 +52,8 @@ This was accomplished by maintaining a `ui.modal` slice of state that, when set 
 ### Search
 Users can search for courses, getting a preview of course titles that match their search in a dropdown menu under the search bar. The dropdown menu is accessible via the up/down arrows keys as well as the mouse.
 
+![Demo of search feature](https://s3-us-west-1.amazonaws.com/cjthom03-udemyclone/DemoGifs/Demo_Search.gif)
+
 Search was implemented by taking advantage of PostgreSQL's full text search capabilities through the [pg_search gem](https://github.com/Casecommons/pg_search).
 
 ### Subscriptions & My Courses
@@ -59,7 +61,10 @@ Users can view course pages at anytime, but must be logged in and must subscribe
 
 Once subscribed, the `Subscribe` button will change to, once clicked, load the next incomplete lesson in the list.
 
+![Demo of subscribe function and my courses](https://s3-us-west-1.amazonaws.com/cjthom03-udemyclone/DemoGifs/Demo_Subscribe.gif)
+
 Users can quickly and easily see all courses to which they are subscribed by accessing their 'My Courses' page. In order to keep code DRY, the same component to display courses on the home page was reused to build the My Courses page. This allows for consistent views for the user, easier debugging for the developer, while maintaining the flexibility to filter this component in anyway necessary.
+
 
 ```javascript
       //From the CourseIndex component
@@ -110,9 +115,14 @@ The learning content is the core of the site and the whole purpose of the applic
 
 While viewing a lesson, users can easily navigate between lessons within the same course using the `<< Previous` and `Next >>` buttons, or through the sidebar. In order to keep the code DRY, the same component was used to render the lessons list on the Course page and in the active lesson sidebar, with responsive design.
 
+![Demo of accessing lesson video](https://s3-us-west-1.amazonaws.com/cjthom03-udemyclone/DemoGifs/Demo_Lesson.gif)
+
 Users can register lesson completion in two ways. Automatically, by watching a video to the very end.
 
+![Demo of automatically setting lesson completion](https://s3-us-west-1.amazonaws.com/cjthom03-udemyclone/DemoGifs/Demo_AutoComplete.gif)
+
 Or, by manually toggling the completion check-mark on each lesson. Lesson progress is tracked on the course page, which updates automatically.
+![Demo of manually setting lesson completion](https://s3-us-west-1.amazonaws.com/cjthom03-udemyclone/DemoGifs/Demo_ManualCompletion.gif)
 
 ## Project Design
 Instatute is intended to be simple, clean, and easy to navigate - allowing the user to spend more time focusing on their learning goals. Given the two-week timeframe, it was decided to focus on a core set of features that would result in a minimum viable product for a learning application that runs smoothly and bug-free. A manageable codebase was prioritized over trying to clone every major feature of the target application (Udemy).
