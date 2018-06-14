@@ -2,6 +2,7 @@ import React from 'react';
 import { Redirect } from 'react-router-dom';
 import CourseRatings from './ratings';
 import LessonsIndexContainer from '../lessons/lessons_container';
+import { Line } from 'rc-progress';
 
 
 class CourseShow extends React.Component {
@@ -63,6 +64,8 @@ class CourseShow extends React.Component {
       );
     } else {
     let course = this.props.course;
+    let completionCount = Object.keys(this.props.completions).length;
+    let completionPercent = (completionCount / this.props.course.lesson_count) * 100;
     return (
       <main>
         <div className="course-show-header-container">
@@ -77,6 +80,16 @@ class CourseShow extends React.Component {
                 className={"course-item-ratings"}
                 course={course}
                 />
+              <div className="course-show-header-progress">
+                <strong>{completionCount}</strong> of <strong>{this.props.course.lesson_count}</strong> lessons complete
+                <Line
+                  percent={completionPercent}
+                  strokeWidth="2.5"
+                  strokeColor="#ffffff"
+                  trailWidth="2.5"
+                  trailColor="#676e79"
+                  strokeLinecap="round" />
+              </div>
             </div>
           </div>
         </div>

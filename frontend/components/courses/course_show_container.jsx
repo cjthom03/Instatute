@@ -13,6 +13,7 @@ const mapStateToProps = (state, ownProps) => ({
   lessons: state.entities.lessons,
   subscriptions: state.entities.subscriptions,
   subscribed: Boolean(state.entities.subscriptions[ownProps.match.params.courseId]),
+  completions: state.entities.completions,
   loggedIn: Boolean(state.session.id),
   userId: state.session.id,
   loading: state.ui.loading
