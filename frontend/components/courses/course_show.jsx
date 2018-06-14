@@ -12,20 +12,22 @@ class CourseShow extends React.Component {
     this.subscribeUser = this.subscribeUser.bind(this);
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (this.props.course.id != nextProps.match.params.courseId) {
-      this.props.fetchSingleCourse(nextProps.match.params.courseId)
-        .then(null,() => this.props.history.push('/'));
-    } else if (this.props.loggedIn !== nextProps.loggedIn) {
-      this.props.fetchSubscriptions();
-    }
-  }
-
   componentDidMount() {
     this.props.fetchSingleCourse(this.props.match.params.courseId)
       .then(
         () => this.props.fetchSubscriptions(),
         () => this.props.history.push('/'));
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props.course.id != nextProps.match.params.courseId) {
+      this.props.fetchSingleCourse(nextProps.match.params.courseId)
+        .then(
+          () => this.props.fetchSubscriptions(),
+          () => this.props.history.push('/'));
+    } else if (this.props.loggedIn !== nextProps.loggedIn) {
+      this.props.fetchSubscriptions();
+    }
   }
 
   subscribeUser() {

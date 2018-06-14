@@ -13,6 +13,7 @@ class SearchResultsIndex extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    if (!this.props.location.search) this.props.history.push('/');
     if(this.props.location.search != nextProps.location.search) {
       this.props.fetchAllSearchResults(nextProps.location.search);
     }
