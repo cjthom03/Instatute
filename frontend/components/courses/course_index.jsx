@@ -4,12 +4,7 @@ import MainBanner from '../banners/main_banner';
 import AboutInstatuteBanner from '../banners/about_instatute_banner';
 import MyCoursesBanner from '../banners/my_courses_banner';
 
-
 class CourseIndex extends React.Component {
-  constructor(props) {
-    super(props);
-    this.banners = this.banners.bind(this);
-  }
 
   componentDidMount() {
     if(this.props.match.path === "/my-courses") {
@@ -33,22 +28,14 @@ class CourseIndex extends React.Component {
   }
 
   render () {
-    let courseIndex;
-    if(this.props.loading) {
-      courseIndex = (
-        <div>
-          <div className="loader">Loading...</div>
-        </div>
-      );
-    } else {
-      courseIndex = (
+    let courseIndex = this.props.loading ? (
+        <div className="loader">Loading...</div>
+      ) : (
         <div className="course-index">
           {this.props.courses.map( course =>
-            <CourseIndexItem key={course.id} course={course}/>
-          )}
+            <CourseIndexItem key={course.id} course={course} /> )}
         </div>
       );
-    }
 
     return(
       <main>

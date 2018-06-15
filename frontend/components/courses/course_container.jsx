@@ -5,13 +5,11 @@ import { fetchCourses } from '../../actions/course_actions';
 import CourseIndex from './course_index';
 
 
-const mapStateToProps = state => {
-  return({
+const mapStateToProps = state => ({
   courses: coursesToArray(state.entities.courses),
   loading: state.ui.loading,
   header: "Love to Learn: Start here"
 });
-};
 
 const mapDispatchToProps = dispatch => ({
   fetchCourses: () => dispatch(fetchCourses())

@@ -90,6 +90,10 @@
   overflow: scroll;
 }
 
+.sidebar::-webkit-scrollbar {
+  display: none;
+}
+
 .sidebar-button {
   position: absolute;
   left: 26.5vw;
