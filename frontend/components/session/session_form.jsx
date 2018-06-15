@@ -16,6 +16,7 @@ class SessionForm extends React.Component {
 
   componentWillUnmount() {
     this.props.clearSessionErrors();
+    if(this.demoAnimation) clearInterval(this.demoAnimation);
   }
 
   handleSubmit(e) {
@@ -25,7 +26,27 @@ class SessionForm extends React.Component {
   }
 
   handleDemoSubmit(e) {
-    this.props.demoLogin(_demoUser).then(this.props.closeModal);
+    e.target.disabled = true;
+    this.setState(_nullUser, () => {
+
+      let nameInput = document.querySelector(".session-name");
+      let nameArr = _demoUser.full_name.split("").reverse();
+      let emailArr = _demoUser.email.split("").reverse();
+      let passwordArr = _demoUser.password.split("").reverse();
+
+      this.demoAnimation = setInterval(() => {
+        if(nameInput && nameArr.length > 0) {
+          this.setState({ full_name: this.state.full_name + nameArr.pop()});
+        } else if (emailArr.length > 0) {
+          this.setState({ email: this.state.email + emailArr.pop()});
+        } else if (passwordArr.length > 0) {
+          this.setState({ password: this.state.password + passwordArr.pop()});
+        } else {
+          clearInterval(this.demoAnimation);
+          this.props.demoLogin(_demoUser).then(this.props.closeModal);
+        }
+      }, 80);
+    });
   }
 
   handleChange(input, e) {
@@ -45,6 +66,7 @@ class SessionForm extends React.Component {
           <i className="fas fa-user fa-lg"></i>
           <input
           type="text"
+          className="session-name"
           value={this.state.full_name}
           placeholder="Full Name"
           onChange={(e) => this.handleChange("full_name", e)}
@@ -77,6 +99,7 @@ class SessionForm extends React.Component {
             <i className="far fa-envelope fa-lg"></i>
             <input
               type="text"
+              className="session-email"
               value={this.state.email}
               placeholder="E-mail"
               onChange={(e) => this.handleChange("email", e)}
@@ -86,6 +109,7 @@ class SessionForm extends React.Component {
             <i className="fas fa-lock fa-lg"></i>
             <input
               type="password"
+              className="session-password"
               value={this.state.password}
               placeholder="Password"
               onChange={(e) => this.handleChange("password", e)}
