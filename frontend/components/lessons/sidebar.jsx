@@ -16,7 +16,6 @@ class Sidebar extends React.Component{
 
   render() {
     if (!this.props.sidebar) return null;
-
     return(
       <div className="sidebar animated slideInLeft">
         <button className="sidebar-button" onClick={() => this.handleClick()}>&times;</button>
