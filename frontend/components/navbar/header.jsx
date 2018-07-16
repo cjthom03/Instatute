@@ -9,7 +9,7 @@ import { clearSearchResults } from '../../actions/search_actions';
 class Header extends React.Component {
 
   clearSearch(e) {
-    let modal = document.querySelector('#search-modal');
+    let modal = document.getElementById('search-modal');
     modal.classList.remove("searching");
     this.props.clearSearchResults();
   }
